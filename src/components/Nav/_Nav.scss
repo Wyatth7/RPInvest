@@ -1,0 +1,28 @@
+.Nav {
+  position: sticky;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: $navy;
+
+  .nav-bars,
+  .nav-logo,
+  .nav-items {
+    margin: auto 0;
+  }
+
+  .nav-bars {
+    font-size: 3rem;
+    color: $gray;
+  }
+
+  .nav-logo {
+    font-size: 2.5rem;
+    color: $gray;
+  }
+
+  .nav-items {
+    display: none;
+  }
+}

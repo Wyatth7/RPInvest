@@ -1,0 +1,30 @@
+.Footer {
+  padding: 2rem;
+  background-color: $navy;
+
+  .footer-links {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .group-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    font-size: 2rem;
+    color: $gray;
+  }
+
+  .copyright {
+    margin-top: 2rem;
+    p {
+      color: $black;
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+}

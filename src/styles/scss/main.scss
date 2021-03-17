@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600&display=swap");
+
+@import "./base";
+@import "./vars";
+
+// COMPONENTS
+@import "./../../components/pages/HomePage/HomePage";
+@import "./../../components/pages/HomePage/SectionElements/SectionElements";
+@import "./../../components/pages/HomePage/Intruction/Instruction";
+@import "./../../components/Nav/Nav";
+@import "./../../components/Nav/NavLinks/BaseLinks/BaseLinks";
+@import "./../../components/Nav/NavLinks/LoginLink/LoginLink";
+@import "./../../components/Footer/Footer";
+
+// @import "./../../components/";

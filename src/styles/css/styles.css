@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600&display=swap");
+*::before,
+*,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-family: "Recursive", sans-serif;
+  font-size: 62.5%; }
+
+.NavLink {
+  text-decoration: none; }
+
+.HomePage .home-intro {
+  background: linear-gradient(#222831b2, #222831b2), url(/src/assets/coin-rounds-img.jpg);
+  background-position: top right;
+  background-size: cover;
+  background-color: #222831b2;
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .HomePage .home-intro .main-home-copy {
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+    color: #fff;
+    text-align: center; }
+    .HomePage .home-intro .main-home-copy h1 {
+      margin-bottom: 2rem;
+      font-size: 4rem;
+      font-weight: 400; }
+    .HomePage .home-intro .main-home-copy h2 {
+      font-size: 2rem;
+      font-weight: 200; }
+  .HomePage .home-intro .get-started {
+    padding: 1rem 2rem;
+    border: 1px solid #f05454;
+    font-size: 1.5rem; }
+
+.HomePage form {
+  width: 100%;
+  padding: 0 1rem; }
+  .HomePage form input,
+  .HomePage form textarea {
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    resize: vertical;
+    font-family: "Recursive", sans-serif; }
+  .HomePage form .name-inputs,
+  .HomePage form .email-input,
+  .HomePage form .message-input {
+    margin-bottom: 1rem; }
+  .HomePage form .form-btn button {
+    width: 100%;
+    padding: 1rem 2rem;
+    border: 1px solid #f05454;
+    font-size: 2rem;
+    background-color: #f05454;
+    color: #fff; }
+
+::placeholder {
+  font-family: "Recursive", sans-serif;
+  font-size: 1.5rem; }
+
+.SectionElement {
+  padding: 4rem 1rem; }
+  .SectionElement .header-content {
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column; }
+    .SectionElement .header-content h1 {
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 3rem;
+      color: #f05454; }
+    .SectionElement .header-content div {
+      margin: 0 auto;
+      width: 12rem;
+      height: 0.5rem;
+      background-color: #f05454; }
+  .SectionElement p {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #fff;
+    line-height: 3rem; }
+
+.Instruction {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0; }
+  .Instruction .instruction-img {
+    width: 20rem;
+    height: 15rem;
+    color: #f05454;
+    margin-bottom: 1rem; }
+    .Instruction .instruction-img div {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 7rem; }
+  .Instruction .text-content {
+    width: 100%;
+    font-size: 1.6rem;
+    text-align: center;
+    color: #fff; }
+
+.Nav {
+  position: sticky;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #30475e; }
+  .Nav .nav-bars,
+  .Nav .nav-logo,
+  .Nav .nav-items {
+    margin: auto 0; }
+  .Nav .nav-bars {
+    font-size: 3rem;
+    color: #dddddd; }
+  .Nav .nav-logo {
+    font-size: 2.5rem;
+    color: #dddddd; }
+  .Nav .nav-items {
+    display: none; }
+
+.BaseLinks {
+  text-decoration: none; }
+
+.LoginLink {
+  color: #fff; }
+
+.Footer {
+  padding: 2rem;
+  background-color: #30475e; }
+  .Footer .footer-links {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; }
+  .Footer .group-links {
+    display: flex;
+    flex-direction: column; }
+  .Footer p {
+    margin: 0.5rem 0;
+    font-size: 2rem;
+    color: #dddddd; }
+  .Footer .copyright {
+    margin-top: 2rem; }
+    .Footer .copyright p {
+      color: #222831;
+      font-size: 2rem;
+      text-align: center; }

@@ -1,0 +1,31 @@
+.SectionElement {
+  padding: 4rem 1rem;
+  // background-color: $black;
+
+  .header-content {
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 3rem;
+      color: $red;
+    }
+
+    div {
+      margin: 0 auto;
+      width: 12rem;
+      height: 0.5rem;
+      background-color: $red;
+    }
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.8rem;
+    color: $white;
+    line-height: 3rem;
+  }
+}

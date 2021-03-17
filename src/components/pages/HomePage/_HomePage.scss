@@ -1,0 +1,75 @@
+.HomePage {
+  .home-intro {
+    background: linear-gradient($black-t, $black-t),
+      url(/src/assets/coin-rounds-img.jpg);
+    background-position: top right;
+    background-size: cover;
+    background-color: $black-t;
+    min-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .main-home-copy {
+      margin-bottom: 4rem;
+      padding: 0 1rem;
+      color: $white;
+      text-align: center;
+
+      h1 {
+        margin-bottom: 2rem;
+        font-size: 4rem;
+        font-weight: 400;
+      }
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 200;
+      }
+    }
+
+    .get-started {
+      padding: 1rem 2rem;
+      border: 1px solid $red;
+      font-size: 1.5rem;
+    }
+  }
+
+  form {
+    width: 100%;
+    padding: 0 1rem;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      outline: none;
+      resize: vertical;
+      font-family: "Recursive", sans-serif;
+    }
+
+    .name-inputs,
+    .email-input,
+    .message-input {
+      margin-bottom: 1rem;
+    }
+
+    .form-btn {
+      button {
+        width: 100%;
+        padding: 1rem 2rem;
+        border: 1px solid $red;
+        font-size: 2rem;
+        background-color: $red;
+        color: $white;
+      }
+    }
+  }
+}
+
+::placeholder {
+  font-family: "Recursive", sans-serif;
+  font-size: 1.5rem;
+}

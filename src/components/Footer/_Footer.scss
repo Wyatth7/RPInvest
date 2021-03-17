@@ -17,6 +17,11 @@
     margin: 0.5rem 0;
     font-size: 2rem;
     color: $gray;
+    transition: all 0.2s;
+
+    &:hover {
+      color: $white;
+    }
   }
 
   .copyright {

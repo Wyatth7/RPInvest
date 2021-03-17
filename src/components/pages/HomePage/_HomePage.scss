@@ -1,3 +1,8 @@
+::placeholder {
+  font-family: "Recursive", sans-serif;
+  font-size: 1.5rem;
+}
+
 .HomePage {
   .home-intro {
     background: linear-gradient($black-t, $black-t),
@@ -69,7 +74,101 @@
   }
 }
 
-::placeholder {
-  font-family: "Recursive", sans-serif;
-  font-size: 1.5rem;
+@media only screen and (min-width: 1030px) {
+  .HomePage {
+    .home-intro {
+      background-position: center;
+      min-height: 65vh;
+
+      .main-home-copy {
+        margin-bottom: 4rem;
+        padding: 0 1rem;
+        color: $white;
+        text-align: center;
+
+        h1 {
+          margin-bottom: 2rem;
+          font-size: 8rem;
+          font-weight: 200;
+        }
+
+        h2 {
+          font-size: 3rem;
+          font-weight: 200;
+        }
+      }
+
+      .get-started {
+        padding: 1rem 2rem;
+        border: 1px solid $red;
+        font-size: 2rem;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: $red;
+        }
+      }
+    }
+
+    .about-text {
+      padding: 0 2rem;
+      line-height: 3.5rem;
+    }
+
+    form {
+      padding: 0 5rem;
+
+      .name-inputs,
+      .email-input,
+      .message-input {
+        margin-bottom: 2rem;
+      }
+
+      .name-inputs {
+        display: flex;
+        margin-bottom: 2rem;
+
+        input:not(:last-of-type) {
+          margin-right: 1rem;
+        }
+      }
+
+      textarea {
+        min-height: 15rem;
+      }
+
+      .form-btn {
+        button {
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover {
+            border-color: lighten($color: $red, $amount: 10);
+            background-color: lighten($color: $red, $amount: 10);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1460px) {
+  .HomePage {
+    form {
+      padding: 0 15rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1670px) {
+  .HomePage {
+    .about-text {
+      padding: 0 4rem;
+      line-height: 3.5rem;
+    }
+
+    form {
+      padding: 0 20rem;
+    }
+  }
 }

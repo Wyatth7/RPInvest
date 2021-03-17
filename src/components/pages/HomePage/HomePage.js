@@ -12,7 +12,7 @@ const Homepage = (props) => {
       <div className="home-intro">
         <div className="main-home-copy">
           <h1>Royal Port Invest</h1>
-          <h2>Keep track of your physical investments.</h2>
+          <h2>Keep track of your commodity investments.</h2>
         </div>
         <LoginLink className="get-started" title="Get Started" />
       </div>
@@ -37,7 +37,7 @@ const Homepage = (props) => {
         bkStyle={{ backgroundColor: "#30475e" }}
         header="About RPInvest"
       >
-        <p>
+        <p className="about-text">
           Created by an investor, web developer, and full-time college student
           with a desire to scrap cumbersome spread sheets, Jud, in the middle of
           an extrodinarily busy time in his life, chose to embark on a mission

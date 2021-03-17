@@ -28,3 +28,36 @@
     color: $white;
   }
 }
+
+@media only screen and (min-width: 1030px) {
+  .Instruction {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+
+    .instruction-img {
+      width: 20rem;
+      height: 15rem;
+      color: $red;
+      margin-bottom: 1rem;
+
+      div {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 7rem;
+      }
+    }
+
+    .text-content {
+      width: 100%;
+      font-size: 1.6rem;
+      text-align: center;
+      color: $white;
+    }
+  }
+}

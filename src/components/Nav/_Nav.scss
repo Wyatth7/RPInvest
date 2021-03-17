@@ -12,6 +12,10 @@
     margin: auto 0;
   }
 
+  .nav-logo {
+    cursor: pointer;
+  }
+
   .nav-bars {
     font-size: 3rem;
     color: $gray;
@@ -24,5 +28,53 @@
 
   .nav-items {
     display: none;
+  }
+}
+
+@media only screen and (min-width: 1030px) {
+  .Nav {
+    .nav-bars {
+      display: none;
+    }
+
+    .nav-items {
+      display: flex;
+
+      p {
+        font-size: 2rem;
+        color: $gray;
+      }
+
+      .generic-btn {
+        height: 100%;
+        padding: 0.5rem 1rem;
+
+        p {
+          height: 100%;
+          margin: auto 0;
+          transition: all 0.2s;
+
+          &:hover {
+            color: $white;
+          }
+
+          &:last-of-type {
+            margin-right: 1rem;
+          }
+        }
+      }
+
+      .login-btn {
+        background-color: $red;
+        border: 1px solid $red;
+        padding: 0.5rem 2rem;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: lighten($color: $red, $amount: 10);
+          border-color: lighten($color: $red, $amount: 10);
+        }
+      }
+    }
   }
 }

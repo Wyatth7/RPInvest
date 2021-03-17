@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const NavLinks = (props) => {
   return (
-    <NavLink className="BaseLinks" to={props.to}>
+    <NavLink className={`BaseLinks ${props.className}`} to={props.to}>
       <p>{props.title}</p>
     </NavLink>
   );

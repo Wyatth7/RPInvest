@@ -13,6 +13,26 @@ html {
 .NavLink {
   text-decoration: none; }
 
+::-webkit-scrollbar {
+  width: 8px; }
+
+::-webkit-scrollbar-track {
+  background-color: #222831b2;
+  border: 1px solid #222831b2; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #222831b2;
+  border: 1px solid #222831b2;
+  border-radius: 8px; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #222831;
+  border: 1px solid #222831; }
+
+::placeholder {
+  font-family: "Recursive", sans-serif;
+  font-size: 1.5rem; }
+
 .HomePage .home-intro {
   background: linear-gradient(#222831b2, #222831b2), url(/src/assets/coin-rounds-img.jpg);
   background-position: top right;
@@ -63,9 +83,62 @@ html {
     background-color: #f05454;
     color: #fff; }
 
-::placeholder {
-  font-family: "Recursive", sans-serif;
-  font-size: 1.5rem; }
+@media only screen and (min-width: 1030px) {
+  .HomePage .home-intro {
+    background-position: center;
+    min-height: 65vh; }
+    .HomePage .home-intro .main-home-copy {
+      margin-bottom: 4rem;
+      padding: 0 1rem;
+      color: #fff;
+      text-align: center; }
+      .HomePage .home-intro .main-home-copy h1 {
+        margin-bottom: 2rem;
+        font-size: 8rem;
+        font-weight: 200; }
+      .HomePage .home-intro .main-home-copy h2 {
+        font-size: 3rem;
+        font-weight: 200; }
+    .HomePage .home-intro .get-started {
+      padding: 1rem 2rem;
+      border: 1px solid #f05454;
+      font-size: 2rem;
+      transition: all 0.2s; }
+      .HomePage .home-intro .get-started:hover {
+        background-color: #f05454; }
+  .HomePage .about-text {
+    padding: 0 2rem;
+    line-height: 3.5rem; }
+  .HomePage form {
+    padding: 0 5rem; }
+    .HomePage form .name-inputs,
+    .HomePage form .email-input,
+    .HomePage form .message-input {
+      margin-bottom: 2rem; }
+    .HomePage form .name-inputs {
+      display: flex;
+      margin-bottom: 2rem; }
+      .HomePage form .name-inputs input:not(:last-of-type) {
+        margin-right: 1rem; }
+    .HomePage form textarea {
+      min-height: 15rem; }
+    .HomePage form .form-btn button {
+      cursor: pointer;
+      transition: all 0.2s; }
+      .HomePage form .form-btn button:hover {
+        border-color: #f48383;
+        background-color: #f48383; } }
+
+@media only screen and (min-width: 1460px) {
+  .HomePage form {
+    padding: 0 15rem; } }
+
+@media only screen and (min-width: 1670px) {
+  .HomePage .about-text {
+    padding: 0 4rem;
+    line-height: 3.5rem; }
+  .HomePage form {
+    padding: 0 20rem; } }
 
 .SectionElement {
   padding: 4rem 1rem; }
@@ -88,6 +161,36 @@ html {
     font-size: 1.8rem;
     color: #fff;
     line-height: 3rem; }
+
+@media only screen and (min-width: 1030px) {
+  .SectionElement {
+    padding: 6rem 1rem; }
+    .SectionElement .header-content {
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column; }
+      .SectionElement .header-content h1 {
+        font-size: 5rem;
+        font-weight: 400; }
+      .SectionElement .header-content div {
+        margin: 0 auto;
+        width: 16rem;
+        height: 0.5rem;
+        background-color: #f05454; }
+    .SectionElement p {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #fff;
+      line-height: 3rem; }
+    .SectionElement .content {
+      padding: 0 1rem;
+      display: flex; } }
+
+@media only screen and (min-width: 1460px) {
+  .SectionElement {
+    padding: 15rem 1rem; }
+    .SectionElement .header-content {
+      margin-top: -6rem; } }
 
 .Instruction {
   width: 100%;
@@ -113,6 +216,31 @@ html {
     text-align: center;
     color: #fff; }
 
+@media only screen and (min-width: 1030px) {
+  .Instruction {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0; }
+    .Instruction .instruction-img {
+      width: 20rem;
+      height: 15rem;
+      color: #f05454;
+      margin-bottom: 1rem; }
+      .Instruction .instruction-img div {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 7rem; }
+    .Instruction .text-content {
+      width: 100%;
+      font-size: 1.6rem;
+      text-align: center;
+      color: #fff; } }
+
 .Nav {
   position: sticky;
   width: 100%;
@@ -124,6 +252,8 @@ html {
   .Nav .nav-logo,
   .Nav .nav-items {
     margin: auto 0; }
+  .Nav .nav-logo {
+    cursor: pointer; }
   .Nav .nav-bars {
     font-size: 3rem;
     color: #dddddd; }
@@ -133,8 +263,37 @@ html {
   .Nav .nav-items {
     display: none; }
 
+@media only screen and (min-width: 1030px) {
+  .Nav .nav-bars {
+    display: none; }
+  .Nav .nav-items {
+    display: flex; }
+    .Nav .nav-items p {
+      font-size: 2rem;
+      color: #dddddd; }
+    .Nav .nav-items .generic-btn {
+      height: 100%;
+      padding: 0.5rem 1rem; }
+      .Nav .nav-items .generic-btn p {
+        height: 100%;
+        margin: auto 0;
+        transition: all 0.2s; }
+        .Nav .nav-items .generic-btn p:hover {
+          color: #fff; }
+        .Nav .nav-items .generic-btn p:last-of-type {
+          margin-right: 1rem; }
+    .Nav .nav-items .login-btn {
+      background-color: #f05454;
+      border: 1px solid #f05454;
+      padding: 0.5rem 2rem;
+      transition: all 0.2s; }
+      .Nav .nav-items .login-btn:hover {
+        background-color: #f48383;
+        border-color: #f48383; } }
+
 .BaseLinks {
-  text-decoration: none; }
+  text-decoration: none;
+  height: 100%; }
 
 .LoginLink {
   color: #fff; }
@@ -152,7 +311,10 @@ html {
   .Footer p {
     margin: 0.5rem 0;
     font-size: 2rem;
-    color: #dddddd; }
+    color: #dddddd;
+    transition: all 0.2s; }
+    .Footer p:hover {
+      color: #fff; }
   .Footer .copyright {
     margin-top: 2rem; }
     .Footer .copyright p {

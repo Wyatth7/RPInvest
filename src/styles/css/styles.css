@@ -10,6 +10,13 @@ html {
   font-family: "Recursive", sans-serif;
   font-size: 62.5%; }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; }
+  .App .main-wrapper {
+    flex: 1; }
+
 .NavLink {
   text-decoration: none; }
 
@@ -241,6 +248,12 @@ html {
       text-align: center;
       color: #fff; } }
 
+@media only screen and (min-width: 1460px) {
+  .Instruction .instruction-img div {
+    font-size: 10rem; }
+  .Instruction .text-content {
+    font-size: 2.3rem; } }
+
 .Nav {
   position: sticky;
   width: 100%;
@@ -254,6 +267,8 @@ html {
     margin: auto 0; }
   .Nav .nav-logo {
     cursor: pointer; }
+    .Nav .nav-logo p {
+      color: #dddddd; }
   .Nav .nav-bars {
     font-size: 3rem;
     color: #dddddd; }
@@ -321,3 +336,69 @@ html {
       color: #222831;
       font-size: 2rem;
       text-align: center; }
+
+.Auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff; }
+  .Auth .auth-header h1,
+  .Auth .auth-header h3 {
+    text-align: center;
+    margin-bottom: 2rem; }
+  .Auth .auth-header h1 {
+    font-size: 3rem;
+    font-weight: 400; }
+  .Auth .auth-header h3 {
+    font-size: 2rem;
+    font-weight: 200; }
+  .Auth .auth-content form {
+    padding: 0 2rem; }
+    .Auth .auth-content form input {
+      outline: none;
+      width: 100%;
+      padding: 1rem; }
+    .Auth .auth-content form .name-inputs,
+    .Auth .auth-content form .email-input {
+      margin-bottom: 2rem; }
+    .Auth .auth-content form .inputs {
+      margin-bottom: 2rem; }
+    .Auth .auth-content form button {
+      width: 100%;
+      padding: 1rem 0;
+      color: #fff;
+      background-color: #f05454;
+      border: 1px solid #f05454;
+      font-size: 1.8rem; }
+      .Auth .auth-content form button:hover {
+        background-color: #f48383;
+        border-color: #f48383; }
+  .Auth .auth-link {
+    margin-top: 2rem;
+    display: flex; }
+    .Auth .auth-link .link-text,
+    .Auth .auth-link p {
+      font-size: 1.3rem; }
+    .Auth .auth-link .link-text {
+      cursor: pointer;
+      margin-left: 0.5rem;
+      text-decoration: none;
+      color: #f05454;
+      border-bottom: 1px solid #f05454; }
+
+.Login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #222831; }
+
+.Signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #222831; }

@@ -1,0 +1,78 @@
+.Auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+
+  .auth-header {
+    h1,
+    h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 400;
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 200;
+    }
+  }
+
+  .auth-content {
+    form {
+      padding: 0 2rem;
+
+      input {
+        outline: none;
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .name-inputs,
+      .email-input {
+        margin-bottom: 2rem;
+      }
+
+      .inputs {
+        margin-bottom: 2rem;
+      }
+
+      button {
+        width: 100%;
+        padding: 1rem 0;
+        color: $white;
+        background-color: $red;
+        border: 1px solid $red;
+        font-size: 1.8rem;
+
+        &:hover {
+          background-color: lighten($color: $red, $amount: 10);
+          border-color: lighten($color: $red, $amount: 10);
+        }
+      }
+    }
+  }
+
+  .auth-link {
+    margin-top: 2rem;
+    display: flex;
+
+    .link-text,
+    p {
+      font-size: 1.3rem;
+    }
+
+    .link-text {
+      cursor: pointer;
+      margin-left: 0.5rem;
+      text-decoration: none;
+      color: $red;
+      border-bottom: 1px solid $red;
+    }
+  }
+}

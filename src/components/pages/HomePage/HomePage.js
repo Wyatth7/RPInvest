@@ -11,7 +11,7 @@ const Homepage = (props) => {
     <div className="HomePage">
       <div className="home-intro">
         <div className="main-home-copy">
-          <h1>Royal Port Invest</h1>
+          <h1>Royal Port Investments</h1>
           <h2>Keep track of your commodity investments.</h2>
         </div>
         <LoginLink className="get-started" title="Get Started" />
@@ -30,7 +30,7 @@ const Homepage = (props) => {
         />
         <Instruction
           icon={solid.faChartLine}
-          step="Watch as your commodity change over time."
+          step="Watch as your commodity changes over time."
         />
       </SectionElement>
       <SectionElement

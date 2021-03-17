@@ -10,7 +10,7 @@ const Nav = (props) => {
   return (
     <div className="Nav">
       <div className="nav-logo">
-        <p>RPInvest</p>
+        <BaseLinks to="/" title="RPInvest" />
       </div>
       <div className="nav-bars">
         <FontAwesomeIcon icon={solid.faBars} />

@@ -1,0 +1,110 @@
+.DashBoard {
+  position: relative;
+
+  .price-tab {
+    position: fixed;
+    width: 100%;
+
+    .mobile-price {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem 1rem;
+      background-color: $navy;
+      border-top: 1px solid $black;
+      border-bottom: 1px solid $black;
+
+      .price-btn {
+        height: 100%;
+        margin: auto 0;
+
+        button {
+          outline: none;
+          margin: auto 0;
+          padding: 1rem 2rem;
+          height: 100%;
+          background-color: $red;
+          border: 1px solid $red;
+          color: $white;
+          font-size: 2rem;
+          letter-spacing: 1px;
+        }
+      }
+
+      .your-total {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto 0;
+        height: 100%;
+        font-size: 2.5rem;
+
+        p {
+          margin-right: 0.5rem;
+          color: $gray;
+          letter-spacing: 1px;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+
+          .arrow-icon {
+            margin-top: 1.5rem;
+            font-size: 3.5rem;
+            color: $green;
+          }
+        }
+      }
+    }
+
+    .desk-price {
+      display: none;
+    }
+  }
+
+  .search-add-tab {
+    background-color: $navy;
+
+    .mobile-search-add-tab {
+      display: flex;
+      padding: 2rem 1rem;
+      border-bottom: 1px solid $black;
+
+      .search {
+        height: 100%;
+        width: 50%;
+
+        input {
+          outline: none;
+          height: 100%;
+          width: 100%;
+          padding: 1rem;
+        }
+      }
+
+      .add-item {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0.5rem;
+
+        button {
+          outline: none;
+          margin: auto 0;
+          padding: 1rem;
+          width: 100%;
+          background-color: $red;
+          border: 2px solid $red;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .chart-content {
+    margin-top: 8.5rem;
+    padding: 2rem;
+  }
+}

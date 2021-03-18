@@ -13,7 +13,8 @@ html {
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; }
+  min-height: 100vh;
+  background-color: #222831; }
   .App .main-wrapper {
     flex: 1; }
 
@@ -402,3 +403,87 @@ html {
   align-items: center;
   height: 80vh;
   background-color: #222831; }
+
+.DashBoard {
+  position: relative; }
+  .DashBoard .price-tab {
+    position: fixed;
+    width: 100%; }
+    .DashBoard .price-tab .mobile-price {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem 1rem;
+      background-color: #30475e;
+      border-top: 1px solid #222831;
+      border-bottom: 1px solid #222831; }
+      .DashBoard .price-tab .mobile-price .price-btn {
+        height: 100%;
+        margin: auto 0; }
+        .DashBoard .price-tab .mobile-price .price-btn button {
+          outline: none;
+          margin: auto 0;
+          padding: 1rem 2rem;
+          height: 100%;
+          background-color: #f05454;
+          border: 1px solid #f05454;
+          color: #fff;
+          font-size: 2rem;
+          letter-spacing: 1px; }
+      .DashBoard .price-tab .mobile-price .your-total {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto 0;
+        height: 100%;
+        font-size: 2.5rem; }
+        .DashBoard .price-tab .mobile-price .your-total p {
+          margin-right: 0.5rem;
+          color: #dddddd;
+          letter-spacing: 1px; }
+        .DashBoard .price-tab .mobile-price .your-total div {
+          display: flex;
+          flex-direction: column; }
+          .DashBoard .price-tab .mobile-price .your-total div .arrow-icon {
+            margin-top: 1.5rem;
+            font-size: 3.5rem;
+            color: #61b15a; }
+    .DashBoard .price-tab .desk-price {
+      display: none; }
+  .DashBoard .search-add-tab {
+    background-color: #30475e; }
+    .DashBoard .search-add-tab .mobile-search-add-tab {
+      display: flex;
+      padding: 2rem 1rem;
+      border-bottom: 1px solid #222831; }
+      .DashBoard .search-add-tab .mobile-search-add-tab .search {
+        height: 100%;
+        width: 50%; }
+        .DashBoard .search-add-tab .mobile-search-add-tab .search input {
+          outline: none;
+          height: 100%;
+          width: 100%;
+          padding: 1rem; }
+      .DashBoard .search-add-tab .mobile-search-add-tab .add-item {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0.5rem; }
+        .DashBoard .search-add-tab .mobile-search-add-tab .add-item button {
+          outline: none;
+          margin: auto 0;
+          padding: 1rem;
+          width: 100%;
+          background-color: #f05454;
+          border: 2px solid #f05454;
+          color: #fff; }
+  .DashBoard .chart-content {
+    margin-top: 8.5rem;
+    padding: 2rem; }
+
+.ChartItem {
+  background-color: #30475e; }
+  .ChartItem .chart-content {
+    height: 40rem;
+    width: 100%; }

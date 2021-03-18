@@ -5,6 +5,7 @@ import Nav from "./components/Nav/Nav";
 import Login from "./components/pages/Auth/Login/Login";
 import Signup from "./components/pages/Auth/Signup/Signup";
 import Homepage from "./components/pages/HomePage/HomePage";
+import DashBoard from "./components/pages/DashBoard/DashBoard";
 
 // STYLES
 import "./styles/css/styles.css";
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/about" component={Homepage} />
+          <Route path="/dashboard" component={DashBoard} />
           <Route path="/" component={Homepage} />
         </Switch>
       </div>

@@ -54,12 +54,14 @@ const ChartItem = (props) => {
           className="chart-plot"
           width={width}
           height={height}
-          margin={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          margin={{ left: 20, right: 20, top: 0, bottom: 25 }}
         >
-          <XAxis />
+          <XAxis color="#dddddd" />
+          <YAxis />
           <Crosshair />
           <LineSeries
             className="chart"
+            color={"#dddddd"}
             data={[
               { x: 1, y: 0 },
               { x: 2, y: 3 },

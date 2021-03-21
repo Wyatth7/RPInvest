@@ -16,6 +16,8 @@ const Nav = (props) => {
         <FontAwesomeIcon icon={solid.faBars} />
       </div>
       <div className="nav-items">
+        <BaseLinks className="generic-btn" to="/values" title="Valuations" />
+
         <BaseLinks className="generic-btn" to="/about" title="About" />
         <BaseLinks
           className="generic-btn"

@@ -7,7 +7,7 @@ import * as solid from "@fortawesome/free-solid-svg-icons";
 import ChartItem from "./ChartItem/ChartItem";
 
 const DashBoard = (props) => {
-  const [fixedPrice, setFixedPrice] = useState("");
+  const [fixedPrice, setFixedPrice] = useState(false);
 
   const scrollListener = (e) => {
     e.preventDefault();

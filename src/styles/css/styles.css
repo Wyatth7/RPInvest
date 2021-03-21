@@ -527,3 +527,34 @@ body {
   .ChartItem .chart-content {
     width: 100%;
     height: 100%; }
+
+.Prices {
+  padding: 2rem;
+  background-color: #222831; }
+
+.PriceItem {
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: #30475e;
+  border: 1px solid #30475e;
+  border-radius: 6px;
+  margin-bottom: 2rem; }
+  .PriceItem .name {
+    color: #dddddd;
+    font-size: 2.5rem;
+    margin-bottom: 1rem; }
+  .PriceItem div {
+    display: flex; }
+    .PriceItem div .price {
+      margin-left: 1.5rem;
+      margin-right: 0.5rem;
+      font-size: 3rem;
+      color: #dddddd; }
+    .PriceItem div .change {
+      margin: auto 0;
+      font-size: 1.7rem;
+      color: #61b15a; }

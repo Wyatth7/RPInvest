@@ -9,6 +9,7 @@ import DashBoard from "./components/pages/DashBoard/DashBoard";
 
 // STYLES
 import "./styles/css/styles.css";
+import Prices from "./components/pages/Prices/Prices";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/about" component={Homepage} />
           <Route path="/dashboard" component={DashBoard} />
+          <Route path="/values" component={Prices} />
           <Route path="/" component={Homepage} />
         </Switch>
       </div>

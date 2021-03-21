@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as solid from "@fortawesome/free-solid-svg-icons";
+
 import ChartItem from "./ChartItem/ChartItem";
 
 const DashBoard = (props) => {
+  const [fixedPrice, setFixedPrice] = useState("");
+
+  const scrollListener = (e) => {
+    e.preventDefault();
+    window.pageYOffset >= 157
+      ? setFixedPrice("fixed-price")
+      : setFixedPrice("");
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollListener);
+    return () => window.removeEventListener("scroll", scrollListener);
+  });
+
   return (
     <div className="DashBoard">
       <div className="search-add-tab">
@@ -20,7 +35,7 @@ const DashBoard = (props) => {
         <div className="desk-search-add-tab"></div>
       </div>
       <div className="price-tab">
-        <div className="mobile-price">
+        <div className={`mobile-price ${fixedPrice}`}>
           <div className="price-btn">
             <button>Prices</button>
           </div>
@@ -33,7 +48,14 @@ const DashBoard = (props) => {
         </div>
         <div className="desk-price"></div>
       </div>
-      <div className="chart-content">
+      <div
+        className={`chart-content ${
+          fixedPrice.length > 1 ? "new-chart-content" : ""
+        }`}
+      >
+        <ChartItem />
+        <ChartItem />
+        <ChartItem />
         <ChartItem />
       </div>
     </div>

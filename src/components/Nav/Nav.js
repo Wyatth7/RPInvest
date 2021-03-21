@@ -23,6 +23,8 @@ const Nav = (props) => {
           title="How It Works"
         />
         <BaseLinks className="generic-btn" to="/contact" title="Contact" />
+        <BaseLinks className="generic-btn" to="/dashboard" title="Dashboard" />
+
         <LoginLink className="login-btn" title="Login" />
       </div>
     </div>

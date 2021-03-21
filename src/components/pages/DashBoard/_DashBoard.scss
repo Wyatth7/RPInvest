@@ -2,7 +2,7 @@
   position: relative;
 
   .price-tab {
-    position: fixed;
+    // position: fixed;
     width: 100%;
 
     .mobile-price {
@@ -68,7 +68,7 @@
     .mobile-search-add-tab {
       display: flex;
       padding: 2rem 1rem;
-      border-bottom: 1px solid $black;
+      border-top: 1px solid $black;
 
       .search {
         height: 100%;
@@ -104,7 +104,19 @@
   }
 
   .chart-content {
-    margin-top: 8.5rem;
+    // margin-top: 8.5rem;
     padding: 2rem;
   }
+}
+
+.fixed-price {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.new-chart-content {
+  margin-top: 8.5rem;
 }

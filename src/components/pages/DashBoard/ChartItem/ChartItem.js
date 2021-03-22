@@ -1,21 +1,11 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as solid from "@fortawesome/free-solid-svg-icons";
 
 // GRAPHS
-import {
-  Crosshair,
-  HorizontalGridLines,
-  LineMarkSeries,
-  LineSeries,
-  LineSeriesCanvas,
-  MarkSeries,
-  XAxis,
-  XYPlot,
-  YAxis,
-} from "react-vis";
+import { Crosshair, LineSeries, XAxis, XYPlot, YAxis } from "react-vis";
 import "./../../../../../node_modules/react-vis/dist/style.css";
 
 const ChartItem = (props) => {

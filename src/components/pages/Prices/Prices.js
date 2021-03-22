@@ -1,7 +1,6 @@
 import React from "react";
 
 // COMPONENTS
-import Nav from "./../../Nav/Nav";
 import PriceItem from "./PricesItem/PriceItem";
 
 const Prices = (props) => {

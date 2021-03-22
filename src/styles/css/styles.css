@@ -532,7 +532,16 @@ body {
   padding: 2rem;
   background-color: #222831; }
 
+@media only screen and (min-width: 900px) {
+  .Prices {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; } }
+
 .PriceItem {
+  flex: 1;
+  margin-right: 1rem;
   padding: 2rem 1rem;
   display: flex;
   justify-content: space-around;

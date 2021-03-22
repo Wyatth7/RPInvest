@@ -2,3 +2,12 @@
   padding: 2rem;
   background-color: $black;
 }
+
+@media only screen and (min-width: 900px) {
+  .Prices {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as solid from "@fortawesome/free-solid-svg-icons";
 
 import ChartItem from "./ChartItem/ChartItem";
+import PriceItem from "../Prices/PricesItem/PriceItem";
 
 const DashBoard = (props) => {
   const [fixedPrice, setFixedPrice] = useState(false);
@@ -46,17 +47,30 @@ const DashBoard = (props) => {
             </div>
           </div>
         </div>
-        <div className="desk-price"></div>
+        <div className="desk-price">
+          <div className="prices">
+            <PriceItem title="Gold" price="$1,700" change="11.50" />
+            <PriceItem title="Silver" price="$25.50" change="0.50" />
+            <PriceItem title="Platnium" price="$1,200" change="11.50" />
+            <PriceItem title="Copper" price="$8" change="0.20" />
+            <PriceItem title="Copper" price="$8" change="0.20" />
+            <PriceItem title="Copper" price="$8" change="0.20" />
+            <PriceItem title="Copper" price="$8" change="0.20" />
+          </div>
+        </div>
       </div>
-      <div
-        className={`chart-content ${
-          fixedPrice.length > 1 ? "new-chart-content" : ""
-        }`}
-      >
+      <div className={`chart-content `}>
         <ChartItem />
         <ChartItem />
         <ChartItem />
-        <ChartItem />
+      </div>
+      <div className="search-add">
+        <div className="search">
+          <input placeholder="Search" type="search" name="search" />
+        </div>
+        <div className="add-item">
+          <button className="add-item-btn">Add a Comodity</button>
+        </div>
       </div>
     </div>
   );

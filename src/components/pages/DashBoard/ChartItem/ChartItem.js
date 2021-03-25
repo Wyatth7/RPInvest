@@ -5,28 +5,49 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as solid from "@fortawesome/free-solid-svg-icons";
 
 // GRAPHS
-import { Crosshair, LineSeries, XAxis, XYPlot, YAxis } from "react-vis";
+import {
+  Crosshair,
+  FlexibleHeightXYPlot,
+  FlexibleWidthXYPlot,
+  FlexibleXYPlot,
+  LineSeries,
+  XAxis,
+  XYPlot,
+  YAxis,
+} from "react-vis";
 import "./../../../../../node_modules/react-vis/dist/style.css";
 
 const ChartItem = (props) => {
-  const [width, setWidth] = useState(238);
-  const [height, setHeight] = useState(340);
-  const [resize, setResize] = useState(false);
+  // const [width, setWidth] = useState(238);
+  // const [height, setHeight] = useState(340);
+  // const [resize, setResize] = useState(false);
 
-  const catchResize = (e) => {
-    e.preventDefault();
-    setResize(!resize);
+  // const catchResize = (e) => {
+  //   e.preventDefault();
+  //   setResize(!resize);
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("resize", catchResize);
+  //   return () => window.removeEventListener("resize", catchResize);
+  // });
+
+  // useEffect(() => {
+  //   const width = document.getElementById("chartItem").offsetWidth;
+  //   console.log(width);
+  //   setWidth(width - 30);
+  // }, [setWidth, setHeight, resize]);
+
+  const axisStyle = {
+    text: {
+      stroke: "#fff",
+      fontWeight: 100,
+    },
+    title: {
+      stroke: "#fff",
+      fontWeight: 100,
+    },
   };
-
-  useEffect(() => {
-    window.addEventListener("resize", catchResize);
-    return () => window.removeEventListener("resize", catchResize);
-  });
-
-  useEffect(() => {
-    const width = document.getElementById("chartItem").offsetWidth;
-    setWidth(width - 30);
-  }, [setWidth, setHeight, resize]);
 
   return (
     <div className="ChartItem">
@@ -40,14 +61,13 @@ const ChartItem = (props) => {
         </div>
       </div>
       <div id="chartItem" className="chart-content">
-        <XYPlot
+        <FlexibleWidthXYPlot
           className="chart-plot"
-          width={width}
-          height={height}
+          height={220}
           margin={{ left: 20, right: 20, top: 0, bottom: 25 }}
         >
-          <XAxis color="#dddddd" />
-          <YAxis />
+          <XAxis title="Date" style={axisStyle} />
+          <YAxis title="Value" style={axisStyle} />
           <Crosshair />
           <LineSeries
             className="chart"
@@ -59,7 +79,7 @@ const ChartItem = (props) => {
               { x: 4, y: 5 },
             ]}
           />
-        </XYPlot>
+        </FlexibleWidthXYPlot>
       </div>
     </div>
   );

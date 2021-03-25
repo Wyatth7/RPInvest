@@ -120,3 +120,139 @@
 .new-chart-content {
   margin-top: 8.5rem;
 }
+
+@media only screen and (min-width: 1200px) {
+  .DashBoard {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      width: 100%;
+    }
+
+    .search-add-tab {
+      display: none;
+    }
+
+    .price-tab {
+      position: relative;
+      width: 20%;
+      height: 100%;
+      z-index: 250;
+      background-color: $black;
+
+      .desk-price {
+        // position: fixed;
+        // top: 10rem;
+        // left: 0;
+        padding: 2rem;
+        overflow: auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+
+        // .search-add {
+        //   display: flex;
+        //   flex-direction: column;
+
+        //   input,
+        //   button {
+        //     outline: none;
+        //   }
+
+        //   input {
+        //     width: 100%;
+        //     padding: 1rem;
+        //   }
+
+        //   button {
+        //     cursor: pointer;
+        //     margin-top: 1rem;
+        //     width: 100%;
+        //     padding: 1rem;
+        //     font-size: 1.5rem;
+        //     color: $white;
+        //     background-color: $red;
+        //     border: 1px solid $red;
+        //     transition: all 0.2s;
+
+        //     &:hover {
+        //       border-color: lighten($color: $red, $amount: 10);
+        //       background-color: lighten($color: $red, $amount: 10);
+        //     }
+        //   }
+        // }
+      }
+
+      .mobile-price {
+        display: none;
+      }
+    }
+
+    .search-add-tab {
+      background-color: $navy;
+
+      .mobile-search-add-tab {
+        display: none;
+      }
+    }
+
+    .search-add {
+      display: flex;
+      flex-direction: column;
+      width: 28%;
+      padding: 2rem;
+
+      input,
+      button {
+        outline: none;
+      }
+
+      input {
+        width: 100%;
+        padding: 1rem;
+      }
+
+      button {
+        cursor: pointer;
+        margin-top: 1rem;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.5rem;
+        color: $white;
+        background-color: $red;
+        border: 1px solid $red;
+        transition: all 0.2s;
+
+        &:hover {
+          border-color: lighten($color: $red, $amount: 10);
+          background-color: lighten($color: $red, $amount: 10);
+        }
+      }
+    }
+
+    .chart-content {
+      // margin-top: 8.5rem;
+      // padding: 2rem;
+      width: 60%;
+      display: flex;
+      flex-wrap: wrap;
+      // margin: 0 0 0 18%;
+    }
+  }
+
+  .fixed-price {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
+
+  // .new-chart-content {
+  //   margin-top: 8.5rem;
+  // }
+}

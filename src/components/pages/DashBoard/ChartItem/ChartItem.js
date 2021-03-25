@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,12 +7,9 @@ import * as solid from "@fortawesome/free-solid-svg-icons";
 // GRAPHS
 import {
   Crosshair,
-  FlexibleHeightXYPlot,
   FlexibleWidthXYPlot,
-  FlexibleXYPlot,
   LineSeries,
   XAxis,
-  XYPlot,
   YAxis,
 } from "react-vis";
 import "./../../../../../node_modules/react-vis/dist/style.css";

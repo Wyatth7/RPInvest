@@ -10,7 +10,6 @@ import PriceItem from "../Prices/PricesItem/PriceItem";
 
 const DashBoard = (props) => {
   const [fixedPrice, setFixedPrice] = useState(false);
-  const [spotData, setSpot] = useState("");
 
   const scrollListener = (e) => {
     e.preventDefault();
@@ -30,14 +29,13 @@ const DashBoard = (props) => {
         const res = await axios.get(
           "https://www.apmex.com/silver-price?_=1616812499738"
         );
-        setSpot(res.data);
         console.log(res);
       } catch (err) {
         console.log(err.message);
       }
     };
     api();
-  }, [setSpot]);
+  }, []);
 
   return (
     <div className="DashBoard">

@@ -20,6 +20,8 @@ body {
   background-color: #222831; }
   .App .main-wrapper {
     flex: 1; }
+  .App .pages {
+    margin-top: 7.5rem; }
 
 .NavLink {
   text-decoration: none; }
@@ -49,6 +51,7 @@ body {
   background-position: top right;
   background-size: cover;
   background-color: #222831b2;
+  background-attachment: fixed;
   min-width: 100%;
   min-height: 100vh;
   display: flex;
@@ -149,7 +152,7 @@ body {
     padding: 0 20rem;
     line-height: 3.5rem; }
   .HomePage form {
-    padding: 0 20rem; } }
+    padding: 0 45rem; } }
 
 .SectionElement {
   padding: 4rem 1rem; }
@@ -259,12 +262,15 @@ body {
     font-size: 2.3rem; } }
 
 .Nav {
-  position: sticky;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 2rem;
-  background-color: #30475e; }
+  background-color: #30475e;
+  z-index: 300; }
   .Nav .nav-bars,
   .Nav .nav-logo,
   .Nav .nav-items {

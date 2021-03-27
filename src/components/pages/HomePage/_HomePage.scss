@@ -10,6 +10,7 @@
     background-position: top right;
     background-size: cover;
     background-color: $black-t;
+    background-attachment: fixed;
     min-width: 100%;
     min-height: 100vh;
     display: flex;
@@ -168,7 +169,7 @@
     }
 
     form {
-      padding: 0 20rem;
+      padding: 0 45rem;
     }
   }
 }

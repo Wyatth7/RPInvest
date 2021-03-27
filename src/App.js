@@ -17,15 +17,17 @@ function App() {
     <div className="App">
       <div className="main-wrapper">
         <Nav />
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/about" component={Homepage} />
-          <Route path="/dashboard" component={DashBoard} />
-          <Route path="/values" component={Prices} />
-          <Route path="/gold" component={AboutMetals} />
-          <Route path="/" component={Homepage} />
-        </Switch>
+        <div className="pages">
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/about" component={Homepage} />
+            <Route path="/dashboard" component={DashBoard} />
+            <Route path="/values" component={Prices} />
+            <Route path="/gold" component={AboutMetals} />
+            <Route path="/" component={Homepage} />
+          </Switch>
+        </div>
       </div>
       <Footer />
     </div>

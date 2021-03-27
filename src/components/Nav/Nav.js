@@ -5,6 +5,7 @@ import LoginLink from "./NavLinks/LoginLink/LoginLink";
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as solid from "@fortawesome/free-solid-svg-icons";
+import HashLinks from "./NavLinks/HashLinks/HashLinks";
 
 const Nav = (props) => {
   return (
@@ -16,13 +17,13 @@ const Nav = (props) => {
         <FontAwesomeIcon icon={solid.faBars} />
       </div>
       <div className="nav-items">
-        <BaseLinks className="generic-btn" to="/about" title="About" />
-        <BaseLinks
+        <HashLinks
           className="generic-btn"
-          to="/how-it-works"
+          to="/#how-it-works"
           title="How It Works"
         />
-        <BaseLinks className="generic-btn" to="/contact" title="Contact" />
+        <HashLinks className="generic-btn" to="/#about" title="About" />
+        <HashLinks className="generic-btn" to="/#contact" title="Contact" />
         <BaseLinks className="generic-btn" to="/values" title="Valuations" />
         <BaseLinks className="generic-btn" to="/dashboard" title="Dashboard" />
 

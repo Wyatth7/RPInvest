@@ -19,6 +19,7 @@ const Homepage = (props) => {
       <SectionElement
         bkStyle={{ backgroundColor: "#222831" }}
         header="How It Works"
+        hashPath="how-it-works"
       >
         <Instruction
           icon={solid.faMoneyCheck}
@@ -36,6 +37,7 @@ const Homepage = (props) => {
       <SectionElement
         bkStyle={{ backgroundColor: "#30475e" }}
         header="About RPInvest"
+        hashPath="about"
       >
         <p className="about-text">
           Created by an investor, web developer, and full-time college student
@@ -50,6 +52,7 @@ const Homepage = (props) => {
       <SectionElement
         bkStyle={{ backgroundColor: "#222831" }}
         header="Contact Us"
+        hashPath="contact"
       >
         <form>
           <div className="name-inputs">

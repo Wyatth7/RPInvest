@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +10,7 @@ import PriceItem from "../Prices/PricesItem/PriceItem";
 
 const DashBoard = (props) => {
   const [fixedPrice, setFixedPrice] = useState(false);
+  const [spotData, setSpot] = useState("");
 
   const scrollListener = (e) => {
     e.preventDefault();
@@ -21,6 +23,21 @@ const DashBoard = (props) => {
     window.addEventListener("scroll", scrollListener);
     return () => window.removeEventListener("scroll", scrollListener);
   });
+
+  useEffect(() => {
+    const api = async () => {
+      try {
+        const res = await axios.get(
+          "https://www.apmex.com/silver-price?_=1616812499738"
+        );
+        setSpot(res.data);
+        console.log(res);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    api();
+  }, [setSpot]);
 
   return (
     <div className="DashBoard">

@@ -15,26 +15,6 @@ import {
 import "./../../../../../node_modules/react-vis/dist/style.css";
 
 const ChartItem = (props) => {
-  // const [width, setWidth] = useState(238);
-  // const [height, setHeight] = useState(340);
-  // const [resize, setResize] = useState(false);
-
-  // const catchResize = (e) => {
-  //   e.preventDefault();
-  //   setResize(!resize);
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", catchResize);
-  //   return () => window.removeEventListener("resize", catchResize);
-  // });
-
-  // useEffect(() => {
-  //   const width = document.getElementById("chartItem").offsetWidth;
-  //   console.log(width);
-  //   setWidth(width - 30);
-  // }, [setWidth, setHeight, resize]);
-
   const axisStyle = {
     text: {
       stroke: "#fff",

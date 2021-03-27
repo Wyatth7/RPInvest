@@ -52,39 +52,18 @@
 
 @media only screen and (min-width: 1200px) {
   .ChartItem {
-    margin-right: 1rem;
-    width: 100%;
+    margin-top: 0;
 
     .name-price {
+      width: 33%;
       .investment {
         &--name {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 2.5rem;
-          color: $gray;
+          justify-content: start;
         }
 
         &--value {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 2rem;
-
-          .amount {
-            color: $gray;
-          }
-
-          .arrow-icon {
-            margin-left: 0.5rem;
-            margin-top: 1rem;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3rem;
-            color: $green;
-          }
+          justify-content: start;
+          font-size: 2.5rem;
         }
       }
     }
@@ -100,6 +79,22 @@
           margin: 0;
         }
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .ChartItem {
+    .name-price {
+      width: 30%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1680px) {
+  .ChartItem {
+    .name-price {
+      width: 23%;
     }
   }
 }

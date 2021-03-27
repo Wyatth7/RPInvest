@@ -53,9 +53,6 @@ const DashBoard = (props) => {
             <PriceItem title="Silver" price="$25.50" change="0.50" />
             <PriceItem title="Platnium" price="$1,200" change="11.50" />
             <PriceItem title="Copper" price="$8" change="0.20" />
-            <PriceItem title="Copper" price="$8" change="0.20" />
-            <PriceItem title="Copper" price="$8" change="0.20" />
-            <PriceItem title="Copper" price="$8" change="0.20" />
           </div>
         </div>
       </div>

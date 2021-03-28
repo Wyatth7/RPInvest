@@ -5,7 +5,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as solid from "@fortawesome/free-solid-svg-icons";
 
-import ChartItem from "./ChartItem/ChartItem";
+// import ChartItem from "./ChartItem/ChartItem";
 import PriceItem from "../Prices/PricesItem/PriceItem";
 import Totals from "./Totals/Totals";
 import AddedCommodity from "./AddedCommodity/AddedCommodity";

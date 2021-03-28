@@ -7,6 +7,8 @@ import * as solid from "@fortawesome/free-solid-svg-icons";
 
 import ChartItem from "./ChartItem/ChartItem";
 import PriceItem from "../Prices/PricesItem/PriceItem";
+import Totals from "./Totals/Totals";
+import AddedCommodity from "./AddedCommodity/AddedCommodity";
 
 const DashBoard = (props) => {
   const [fixedPrice, setFixedPrice] = useState(false);
@@ -72,11 +74,24 @@ const DashBoard = (props) => {
         </div>
       </div>
       <div className={`chart-content `}>
+        <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
+        <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
+        <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
+        <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
+        <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
+        <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
+        <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
+        {/* <ChartItem />
         <ChartItem />
-        <ChartItem />
-        <ChartItem />
+        <ChartItem /> */}
       </div>
       <div className="search-add">
+        <div className="total-investments">
+          <Totals amount="$40,000" />
+          <Totals title="Gold" amount="$10,000" />
+          <Totals title="Silver" amount="$20,000" />
+          <Totals title="Platnium" amount="$10,000" />
+        </div>
         <div className="search">
           <input placeholder="Search" type="search" name="search" />
         </div>

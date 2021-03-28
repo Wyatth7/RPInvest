@@ -11,6 +11,7 @@ import DashBoard from "./components/pages/DashBoard/DashBoard";
 import "./styles/css/styles.css";
 import Prices from "./components/pages/Prices/Prices";
 import AboutMetals from "./components/pages/AboutMetals/AboutMetals";
+import PageNotFound from "./components/pages/PageNotFound/PageNotFound";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
             <Route path="/dashboard" component={DashBoard} />
             <Route path="/values" component={Prices} />
             <Route path="/gold" component={AboutMetals} />
-            <Route path="/" component={Homepage} />
+            <Route exact path="/" component={Homepage} />
+            <Route component={PageNotFound} />
           </Switch>
         </div>
       </div>

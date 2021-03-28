@@ -11,7 +11,7 @@ const Nav = (props) => {
   return (
     <div className="Nav">
       <div className="nav-logo">
-        <BaseLinks to="/" title="RPInvest" />
+        <BaseLinks to="/" title="RPMetals" />
       </div>
       <div className="nav-bars">
         <FontAwesomeIcon icon={solid.faBars} />

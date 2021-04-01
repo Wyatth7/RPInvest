@@ -84,7 +84,7 @@ const DashBoard = (props) => {
         <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
         <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
         <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-        <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
+        <AddedCommodity name="Weekly Buy" price="4000" date="12-24-20" />
         <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
         {/* <ChartItem />
         <ChartItem />

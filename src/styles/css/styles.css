@@ -383,12 +383,14 @@ body {
     .Auth .auth-content form .inputs {
       margin-bottom: 2rem; }
     .Auth .auth-content form button {
+      cursor: pointer;
       width: 100%;
       padding: 1rem 0;
       color: #fff;
       background-color: #f05454;
       border: 1px solid #f05454;
-      font-size: 1.8rem; }
+      font-size: 1.8rem;
+      transition: all 0.2s; }
       .Auth .auth-content form button:hover {
         background-color: #f48383;
         border-color: #f48383; }

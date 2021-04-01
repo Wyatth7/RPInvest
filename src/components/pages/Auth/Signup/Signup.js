@@ -110,7 +110,7 @@ const Signup = (props) => {
             />
           </div>
           <div>
-            <button>Login</button>
+            <button>Sign up</button>
           </div>
         </form>
       </Auth>

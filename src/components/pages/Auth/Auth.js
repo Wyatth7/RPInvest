@@ -1,9 +1,13 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { NavLink } from "react-router-dom";
 
 const Auth = (props) => {
   return (
     <div className="Auth">
+      <Helmet>
+        <title> {`${props.path} | Royal Port Metals`}</title>
+      </Helmet>
       <div className="auth-header">
         <h1>{props.header}</h1>
         <h3>{props.secondaryHeader}</h3>

@@ -5,10 +5,14 @@ import SectionElement from "./SectionElements/SectionElement";
 // ICONS
 import * as solid from "@fortawesome/free-solid-svg-icons";
 import Instruction from "./Intruction/Instruction";
+import { Helmet } from "react-helmet";
 
 const Homepage = (props) => {
   return (
     <div className="HomePage">
+      <Helmet>
+        <title>Home | Royal Port Metals</title>
+      </Helmet>
       <div className="home-intro">
         <div className="main-home-copy">
           <h1>Royal Port Metals</h1>
@@ -21,18 +25,20 @@ const Homepage = (props) => {
         header="How It Works"
         hashPath="how-it-works"
       >
-        <Instruction
-          icon={solid.faMoneyCheck}
-          step="Buy your commodity of choice."
-        />
-        <Instruction
-          icon={solid.faStore}
-          step="Add your commodity to your profile."
-        />
-        <Instruction
-          icon={solid.faChartLine}
-          step="Watch as your commodity changes over time."
-        />
+        <div className="how-it-works-items">
+          <Instruction
+            icon={solid.faMoneyCheck}
+            step="Buy your commodity of choice."
+          />
+          <Instruction
+            icon={solid.faStore}
+            step="Add your commodity to your profile."
+          />
+          <Instruction
+            icon={solid.faChartLine}
+            step="Watch as your commodity changes over time."
+          />
+        </div>
       </SectionElement>
       <SectionElement
         bkStyle={{ backgroundColor: "#30475e" }}

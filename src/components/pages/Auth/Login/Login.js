@@ -5,6 +5,7 @@ const Login = (props) => {
   return (
     <div className="Login">
       <Auth
+        path="Login"
         header="Customer Login"
         secondaryHeader="Login to check your portfolio."
         authLinkText="Don't have an account?"

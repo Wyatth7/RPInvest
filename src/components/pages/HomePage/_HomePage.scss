@@ -111,6 +111,13 @@
       }
     }
 
+    .how-it-works-items {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+
     .about-text {
       padding: 0 2rem;
       line-height: 3.5rem;
@@ -157,6 +164,10 @@
   .HomePage {
     form {
       padding: 0 15rem;
+    }
+
+    .how-it-works-items {
+      padding: 0 6rem;
     }
   }
 }

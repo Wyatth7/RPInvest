@@ -1,16 +1,19 @@
 .AddedCommodity {
+  flex: 1 1 0px;
+  padding: 3rem;
   margin-bottom: 2rem;
-  padding: 1rem;
-  width: 100%;
+  max-width: fit-content;
+  height: fit-content;
   background-color: $navy;
   border: 1px solid $navy;
   border-radius: 6px;
+  transform: all 0.2s;
 
   &:hover {
     .edit-delete {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2rem;
+      visibility: visible;
+      opacity: 1;
+      // margin-top: 2rem;
       width: 100%;
 
       button {
@@ -67,15 +70,35 @@
   }
 
   .edit-delete {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.2s;
+
+    button {
+      padding: 0.5rem 2rem;
+      color: $white;
+      cursor: pointer;
+    }
+
+    .edit {
+      width: 45%;
+      background-color: $green;
+      border: 1px solid $green;
+    }
+
+    .delete {
+      width: 45%;
+      background-color: $red;
+      border: 1px solid $red;
+    }
   }
 }
 
 @media only screen and (min-width: 480px) {
   .AddedCommodity {
     margin-bottom: 4rem;
-    width: fit-content;
-    height: fit-content;
     &:hover {
       .edit-delete {
         display: flex;
@@ -134,9 +157,50 @@
         font-size: 1.4rem;
       }
     }
+  }
+}
 
-    .edit-delete {
-      display: none;
+@media only screen and (min-width: 1800px) {
+  .AddedCommodity {
+    flex: 1;
+    margin-bottom: 2rem;
+    padding: 1rem;
+
+    &:hover {
+      .edit-delete {
+        margin-top: 0rem;
+        width: 100%;
+
+        button {
+          padding: 0.5rem 2rem;
+          color: $white;
+          cursor: pointer;
+        }
+
+        .edit {
+          width: 45%;
+          background-color: $green;
+          border: 1px solid $green;
+        }
+
+        .delete {
+          width: 45%;
+          background-color: $red;
+          border: 1px solid $red;
+        }
+      }
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      color: $gray;
+
+      div {
+        display: flex;
+      }
     }
   }
 }

@@ -9,6 +9,7 @@ import * as solid from "@fortawesome/free-solid-svg-icons";
 import PriceItem from "../Prices/PricesItem/PriceItem";
 import Totals from "./Totals/Totals";
 import AddedCommodity from "./AddedCommodity/AddedCommodity";
+import { Helmet } from "react-helmet";
 
 const DashBoard = (props) => {
   const [fixedPrice, setFixedPrice] = useState(false);
@@ -41,6 +42,9 @@ const DashBoard = (props) => {
 
   return (
     <div className="DashBoard">
+      <Helmet>
+        <title>Dashboard | Royal Port Metals</title>
+      </Helmet>
       <div className="search-add-tab">
         <div className="mobile-search-add-tab">
           <div className="search">
@@ -74,6 +78,7 @@ const DashBoard = (props) => {
         </div>
       </div>
       <div className={`chart-content `}>
+        <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
         <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
         <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
         <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />

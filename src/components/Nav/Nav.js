@@ -24,9 +24,7 @@ const Nav = (props) => {
         />
         <HashLinks className="generic-btn" to="/#about" title="About" />
         <HashLinks className="generic-btn" to="/#contact" title="Contact" />
-        <BaseLinks className="generic-btn" to="/values" title="Valuations" />
         <BaseLinks className="generic-btn" to="/dashboard" title="Dashboard" />
-
         <LoginLink className="login-btn" title="Login" />
       </div>
     </div>

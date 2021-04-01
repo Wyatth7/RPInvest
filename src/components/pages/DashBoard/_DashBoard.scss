@@ -104,11 +104,11 @@
   }
 
   .chart-content {
-    // margin-top: 8.5rem;
     padding: 2rem;
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
+    justify-content: center;
+    height: fit-content;
 
     div {
       &:not(:last-of-type) {
@@ -252,12 +252,8 @@
     }
 
     .chart-content {
-      // margin-top: 8.5rem;
-      // padding: 2rem;
       width: 60%;
-      display: flex;
-      flex-wrap: wrap;
-      // margin: 0 0 0 18%;
+      justify-content: flex-start;
     }
   }
 

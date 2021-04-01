@@ -24,7 +24,6 @@ function App() {
             <Route path="/signup" component={Signup} />
             <Route path="/about" component={Homepage} />
             <Route path="/dashboard" component={DashBoard} />
-            <Route path="/values" component={Prices} />
             <Route path="/gold" component={AboutMetals} />
             <Route exact path="/" component={Homepage} />
             <Route component={PageNotFound} />

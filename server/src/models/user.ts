@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 interface ICommodity extends mongoose.Document {
   title: string;
+  type: string;
   amount: number;
   date: string;
   increase: boolean;
@@ -53,6 +54,11 @@ const user = new mongoose.Schema({
       title: {
         type: String,
         required: true,
+      },
+      type: {
+        type: String,
+        enum: ["silver", "gold", "platinum", "palladium"],
+        reuired: true,
       },
       amount: {
         type: Number,

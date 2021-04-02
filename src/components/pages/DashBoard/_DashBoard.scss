@@ -134,6 +134,44 @@
   margin-top: 8.5rem;
 }
 
+.modal-content {
+  width: 100%;
+
+  form {
+    padding: 2rem 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--inputs {
+    margin-bottom: 2rem;
+
+    input {
+      padding: 1rem;
+      width: 100%;
+      outline: none;
+
+      &:not(:last-of-type) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &--btn {
+    width: 100%;
+    button {
+      width: 100%;
+      padding: 1rem 2rem;
+      color: $white;
+      background-color: $red;
+      border: 1px solid $red;
+    }
+  }
+}
+
 @media only screen and (min-width: 1200px) {
   .DashBoard {
     display: flex;

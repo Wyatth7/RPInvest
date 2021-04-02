@@ -1,5 +1,11 @@
-// COMPONENTS
+import React, { useState } from "react";
 import { Route, Switch } from "react-router";
+
+// FIREBASE
+import firebase from "firebase";
+import firebaseConfig from "./utils/firebaseConfig";
+
+// COMPONENTS
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
 import Login from "./components/pages/Auth/Login/Login";

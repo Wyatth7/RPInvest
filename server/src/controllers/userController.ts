@@ -30,3 +30,31 @@ export const createUser: RequestHandler = async (req, res, next) => {
     return sendRes(res, 400, "Could not create user");
   }
 };
+
+export const addCommodity: RequestHandler = async (req, res, next) => {
+  const reqData = req.body;
+
+  try {
+    await User.findOneAndUpdate(
+      { email: reqData.email },
+      {
+        $push: {
+          commodities: {
+            title: reqData.title,
+            type: reqData.type,
+            amount: reqData.amount,
+            date: reqData.date,
+            increase: false,
+          },
+        },
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    sendRes(
+      res,
+      400,
+      "Could not create commodity item, refresh the page or try again later."
+    );
+  }
+};

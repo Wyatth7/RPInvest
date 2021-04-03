@@ -8,13 +8,13 @@ const Modal = (props) => {
   return (
     <div className="Modal">
       <div onClick={props.close} className="backdrop"></div>
-      <div className="Modal__content">
+      <div className="Modal__content fade-in">
         <FontAwesomeIcon
           onClick={props.close}
           className="close-icon"
           icon={solid.faTimes}
         />
-        {props.children}
+        <div className="dynamic-content">{props.children}</div>
       </div>
     </div>
   );

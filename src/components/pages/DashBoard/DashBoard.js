@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,10 +14,11 @@ import { Helmet } from "react-helmet";
 
 // COMPONENTS
 import Modal from "./Modal/Modal";
+import { withRouter } from "react-router";
 
 const DashBoard = (props) => {
   const [fixedPrice, setFixedPrice] = useState(false);
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   const [commodTitle, setCommodTitle] = useState("");
   const [commodPrice, setCommodPrice] = useState(0);
 
@@ -52,7 +54,7 @@ const DashBoard = (props) => {
     } else {
       document.querySelector("body").style.overflow = "visible";
     }
-  }, []);
+  }, [modal]);
 
   const toggleCommodityHandler = () => {
     setModal(!modal);
@@ -65,8 +67,17 @@ const DashBoard = (props) => {
   return (
     <React.Fragment>
       {modal ? (
-        <Modal close={toggleCommodityHandler}>
+        <Modal inProp={modal} close={toggleCommodityHandler}>
           <div className="modal-content">
+            <div className="modal-content--info">
+              <div className="content">
+                <h1>Add a commodity</h1>
+                <p>
+                  When you add a commodity to your profile, you will be able to
+                  see your metals 24 hours a day, 7 days a week.
+                </p>
+              </div>
+            </div>
             <form onSubmit={addCommodityHandler}>
               <div className="modal-content--inputs">
                 <input
@@ -166,4 +177,4 @@ const DashBoard = (props) => {
   );
 };
 
-export default DashBoard;
+export default withRouter(DashBoard);

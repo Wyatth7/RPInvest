@@ -2,7 +2,6 @@
   position: relative;
 
   .price-tab {
-    // position: fixed;
     width: 100%;
 
     .mobile-price {
@@ -146,6 +145,24 @@
     align-items: center;
   }
 
+  &--info {
+    h1 {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 400;
+      color: $gray;
+    }
+
+    p {
+      display: none;
+    }
+  }
+
+  &--inputs,
+  &--btn {
+    width: 80%;
+  }
+
   &--inputs {
     margin-bottom: 2rem;
 
@@ -161,13 +178,23 @@
   }
 
   &--btn {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+
     button {
+      cursor: pointer;
       width: 100%;
+      margin: 0 auto;
       padding: 1rem 2rem;
       color: $white;
       background-color: $red;
       border: 1px solid $red;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: lighten($color: $red, $amount: 10);
+        border-color: lighten($color: $red, $amount: 10);
+      }
     }
   }
 }
@@ -193,9 +220,6 @@
       background-color: $black;
 
       .desk-price {
-        // position: fixed;
-        // top: 10rem;
-        // left: 0;
         padding: 2rem;
         overflow: auto;
         flex: 1;
@@ -204,38 +228,6 @@
         justify-content: center;
         align-items: center;
         width: auto;
-
-        // .search-add {
-        //   display: flex;
-        //   flex-direction: column;
-
-        //   input,
-        //   button {
-        //     outline: none;
-        //   }
-
-        //   input {
-        //     width: 100%;
-        //     padding: 1rem;
-        //   }
-
-        //   button {
-        //     cursor: pointer;
-        //     margin-top: 1rem;
-        //     width: 100%;
-        //     padding: 1rem;
-        //     font-size: 1.5rem;
-        //     color: $white;
-        //     background-color: $red;
-        //     border: 1px solid $red;
-        //     transition: all 0.2s;
-
-        //     &:hover {
-        //       border-color: lighten($color: $red, $amount: 10);
-        //       background-color: lighten($color: $red, $amount: 10);
-        //     }
-        //   }
-        // }
       }
 
       .mobile-price {
@@ -303,7 +295,81 @@
     z-index: 100;
   }
 
-  // .new-chart-content {
-  //   margin-top: 8.5rem;
-  // }
+  .modal-content {
+    width: 100%;
+    display: flex;
+
+    &--info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+
+      .content {
+        padding: 0 2rem;
+
+        h1 {
+          margin-bottom: 2rem;
+          text-align: center;
+          font-size: 2.8rem;
+          font-weight: 400;
+          color: $gray;
+        }
+
+        p {
+          padding: 0 4rem;
+          display: flex;
+          text-align: center;
+          color: $gray;
+          font-size: 1.6rem;
+          font-weight: 400;
+          line-height: 25px;
+        }
+      }
+    }
+
+    form {
+      padding: 2rem 0;
+      display: flex;
+      width: 50%;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &--inputs,
+    &--btn {
+      width: 100%;
+      padding-right: 4rem;
+    }
+
+    &--inputs {
+      margin-bottom: 2rem;
+
+      input {
+        padding: 1rem;
+        width: 100%;
+        outline: none;
+
+        &:not(:last-of-type) {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
+    &--btn {
+      display: flex;
+      justify-content: center;
+
+      button {
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        color: $white;
+        background-color: $red;
+        border: 1px solid $red;
+      }
+    }
+  }
 }

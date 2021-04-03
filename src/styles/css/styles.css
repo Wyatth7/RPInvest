@@ -43,6 +43,17 @@ body {
   background-color: #222831;
   border: 1px solid #222831; }
 
+.roll-appear {
+  opacity: 0; }
+
+.roll-enter {
+  opacity: 0; }
+
+.roll-enter-done {
+  transform: rotate(720deg) scale(3);
+  opacity: 1;
+  transition: transform 1000ms, opacity 1000ms; }
+
 ::placeholder {
   font-family: "Recursive", sans-serif;
   font-size: 1.5rem; }
@@ -527,6 +538,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center; }
+  .modal-content--info h1 {
+    text-align: center;
+    font-size: 2.3rem;
+    font-weight: 400;
+    color: #dddddd; }
+  .modal-content--info p {
+    display: none; }
+  .modal-content--inputs, .modal-content--btn {
+    width: 80%; }
   .modal-content--inputs {
     margin-bottom: 2rem; }
     .modal-content--inputs input {
@@ -536,13 +556,20 @@ body {
       .modal-content--inputs input:not(:last-of-type) {
         margin-bottom: 1rem; }
   .modal-content--btn {
-    width: 100%; }
+    display: flex;
+    justify-content: center; }
     .modal-content--btn button {
+      cursor: pointer;
       width: 100%;
+      margin: 0 auto;
       padding: 1rem 2rem;
       color: #fff;
       background-color: #f05454;
-      border: 1px solid #f05454; }
+      border: 1px solid #f05454;
+      transition: all 0.2s; }
+      .modal-content--btn button:hover {
+        background-color: #f48383;
+        border-color: #f48383; }
 
 @media only screen and (min-width: 1200px) {
   .DashBoard {
@@ -607,7 +634,60 @@ body {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 100; } }
+    z-index: 100; }
+  .modal-content {
+    width: 100%;
+    display: flex; }
+    .modal-content--info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50%; }
+      .modal-content--info .content {
+        padding: 0 2rem; }
+        .modal-content--info .content h1 {
+          margin-bottom: 2rem;
+          text-align: center;
+          font-size: 2.8rem;
+          font-weight: 400;
+          color: #dddddd; }
+        .modal-content--info .content p {
+          padding: 0 4rem;
+          display: flex;
+          text-align: center;
+          color: #dddddd;
+          font-size: 1.6rem;
+          font-weight: 400;
+          line-height: 25px; }
+    .modal-content form {
+      padding: 2rem 0;
+      display: flex;
+      width: 50%;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center; }
+    .modal-content--inputs, .modal-content--btn {
+      width: 100%;
+      padding-right: 4rem; }
+    .modal-content--inputs {
+      margin-bottom: 2rem; }
+      .modal-content--inputs input {
+        padding: 1rem;
+        width: 100%;
+        outline: none; }
+        .modal-content--inputs input:not(:last-of-type) {
+          margin-bottom: 1rem; }
+    .modal-content--btn {
+      display: flex;
+      justify-content: center; }
+      .modal-content--btn button {
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        color: #fff;
+        background-color: #f05454;
+        border: 1px solid #f05454; } }
 
 .ChartItem {
   margin: 2rem 0;
@@ -887,6 +967,14 @@ body {
       .AddedCommodity .info div {
         display: flex; } }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    margin-top: -1000px; }
+  100% {
+    opacity: 1;
+    margin-top: 0; } }
+
 .Modal {
   padding: 0 2rem;
   position: fixed;
@@ -905,15 +993,31 @@ body {
     background-color: #222831b2;
     z-index: 1500; }
   .Modal__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: fade-in 0.3s ease-in;
     padding: 1rem;
-    position: relative;
+    position: inherit;
     z-index: 2000;
     overflow: hidden;
-    width: fit-content;
-    height: fit-content;
-    background-color: #fff;
-    border: 1px solid #fff;
+    width: 80%;
+    height: 50%;
+    background-color: #30475e;
+    border: 1px solid #222831;
     border-radius: 6px; }
     .Modal__content .close-icon {
+      cursor: pointer;
       font-size: 2rem;
-      margin-bottom: 1rem; }
+      margin-bottom: 1rem;
+      position: fixed;
+      color: #fff; }
+    .Modal__content .dynamic-content {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+
+@media only screen and (min-width: 1480px) {
+  .Modal__content {
+    width: 60%; } }

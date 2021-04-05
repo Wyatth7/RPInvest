@@ -69,22 +69,6 @@ class Ajax {
     }
   }
 
-  static async editCommodityTab(data) {
-    try {
-      const [email, token] = await this.getUserData();
-
-      return await this.callServer(
-        `${this.authPath}/editCommodity`,
-        "patch",
-        data,
-        token,
-        email
-      );
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   static async deleteCommodityTab() {
     try {
       const [email, token] = await this.getUserData();
@@ -93,6 +77,22 @@ class Ajax {
         `${this.authPath}/deleteCommodity`,
         "patch",
         null,
+        token,
+        email
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  static async editCommodityTab(data) {
+    try {
+      const [email, token] = await this.getUserData();
+
+      return await this.callServer(
+        `${this.authPath}/editCommodity`,
+        "patch",
+        data,
         token,
         email
       );

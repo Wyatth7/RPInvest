@@ -15,7 +15,7 @@ export const createUser: RequestHandler = async (req, res, next) => {
     const user = await admin.auth().createUser({
       email: data.email,
       password: data.pass,
-      name: data.firstname,
+      // name: data.firstname,
     });
 
     await User.create({
@@ -33,6 +33,9 @@ export const createUser: RequestHandler = async (req, res, next) => {
 
 export const addCommodity: RequestHandler = async (req, res, next) => {
   const reqData = req.body;
+  console.log("herre");
+
+  const date = new Date().toLocaleDateString();
 
   try {
     await User.findOneAndUpdate(
@@ -43,12 +46,14 @@ export const addCommodity: RequestHandler = async (req, res, next) => {
             title: reqData.title,
             type: reqData.type,
             amount: reqData.amount,
-            date: reqData.date,
+            date: date,
+            change: 0,
             increase: false,
           },
         },
       }
     );
+    res.status(200).json({ message: "Commodity added" });
   } catch (err) {
     console.log(err);
     sendRes(
@@ -56,5 +61,35 @@ export const addCommodity: RequestHandler = async (req, res, next) => {
       400,
       "Could not create commodity item, refresh the page or try again later."
     );
+  }
+};
+
+export const getUserData: RequestHandler = async (req, res, next) => {
+  try {
+    const userData = await User.findOne({
+      email: req.rawHeaders[getEmail(req.rawHeaders)],
+    });
+    res.status(200).json({
+      userData: userData,
+    });
+  } catch (err) {
+    console.log(err);
+    return sendRes(res, 400, "Could not get user data.");
+  }
+};
+
+const getEmail = (headers: string[]) => {
+  let number = 0;
+
+  headers.forEach((el, index) => {
+    if (el === "email") {
+      number = index;
+    }
+  });
+
+  if (!number) {
+    return -1;
+  } else {
+    return number + 1;
   }
 };

@@ -50,16 +50,16 @@
 
     div {
       display: flex;
+      align-items: center;
 
       h1 {
         margin-right: 0.7rem;
         font-size: 2.5rem;
       }
 
-      .icon {
-        margin-top: 0.9rem;
+      p {
         height: 100%;
-        font-size: 2.8rem;
+        font-size: 1.3rem;
         color: $green;
       }
     }
@@ -98,27 +98,26 @@
 
 @media only screen and (min-width: 480px) {
   .AddedCommodity {
+    padding: 1rem;
     margin-bottom: 4rem;
     &:hover {
       .edit-delete {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 2rem;
         width: 100%;
 
         button {
           padding: 0.5rem 2rem;
           color: $white;
+          cursor: pointer;
         }
 
         .edit {
-          width: 45%;
+          width: 100%;
           background-color: $green;
           border: 1px solid $green;
         }
 
         .delete {
-          width: 45%;
+          width: 100%;
           background-color: $red;
           border: 1px solid $red;
         }
@@ -157,6 +156,31 @@
         font-size: 1.4rem;
       }
     }
+
+    .edit-delete {
+      margin-top: 1rem;
+      justify-content: space-between;
+
+      button {
+        padding: 0.5rem 2rem;
+        color: $white;
+        cursor: pointer;
+      }
+
+      .edit {
+        margin-right: 0.5rem;
+        width: auto;
+        background-color: $green;
+        border: 1px solid $green;
+      }
+
+      .delete {
+        margin-left: 0.5rem;
+        width: auto;
+        background-color: $red;
+        border: 1px solid $red;
+      }
+    }
   }
 }
 
@@ -178,13 +202,13 @@
         }
 
         .edit {
-          width: 45%;
+          width: 100%;
           background-color: $green;
           border: 1px solid $green;
         }
 
         .delete {
-          width: 45%;
+          width: 100%;
           background-color: $red;
           border: 1px solid $red;
         }
@@ -200,6 +224,30 @@
 
       div {
         display: flex;
+      }
+    }
+
+    .edit-delete {
+      justify-content: space-between;
+
+      button {
+        padding: 0.5rem 2rem;
+        color: $white;
+        cursor: pointer;
+      }
+
+      .edit {
+        margin-right: 0.5rem;
+        width: auto;
+        background-color: $green;
+        border: 1px solid $green;
+      }
+
+      .delete {
+        margin-left: 0.5rem;
+        width: auto;
+        background-color: $red;
+        border: 1px solid $red;
       }
     }
   }

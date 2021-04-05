@@ -133,6 +133,73 @@
   margin-top: 8.5rem;
 }
 
+.edit-modal {
+  width: 100%;
+
+  .title {
+    margin-bottom: 1rem;
+
+    h1,
+    p {
+      text-align: center;
+      color: $gray;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    p {
+      display: none;
+      font-size: 1.4rem;
+    }
+  }
+
+  form {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+      width: 100%;
+
+      input:not(:last-of-type) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    input,
+    button {
+      width: 80%;
+      padding: 1rem 2rem;
+    }
+
+    button {
+      cursor: pointer;
+      font: "Recursive", sans-serif;
+      font-size: 1.5rem;
+      color: $white;
+      background-color: $green;
+      border: 1px solid $green;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: lighten($color: $green, $amount: 10);
+        border-color: lighten($color: $green, $amount: 10);
+      }
+    }
+  }
+}
+
 .modal-content {
   width: 100%;
 
@@ -143,6 +210,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  &--inputs,
+  &--btn,
+  &--select {
+    width: 80%;
+  }
+
+  &--select {
+    margin-bottom: 2rem;
+    position: relative;
+
+    select {
+      outline: none;
+      width: 100%;
+      padding: 1rem;
+      font-family: "Recursive", sans-serif;
+      font-size: 1.5rem;
+      color: $black-t;
+    }
   }
 
   &--info {
@@ -156,11 +243,6 @@
     p {
       display: none;
     }
-  }
-
-  &--inputs,
-  &--btn {
-    width: 80%;
   }
 
   &--inputs {
@@ -190,6 +272,7 @@
       background-color: $red;
       border: 1px solid $red;
       transition: all 0.2s;
+      font-size: 1.5rem;
 
       &:hover {
         background-color: lighten($color: $red, $amount: 10);
@@ -295,6 +378,38 @@
     z-index: 100;
   }
 
+  .edit-modal {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      margin-bottom: 0rem;
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      p {
+        display: block;
+        font-size: 1.8rem;
+      }
+    }
+
+    form {
+      padding: 2rem 0;
+      width: 50%;
+    }
+  }
+
   .modal-content {
     width: 100%;
     display: flex;
@@ -339,7 +454,8 @@
     }
 
     &--inputs,
-    &--btn {
+    &--btn,
+    &--select {
       width: 100%;
       padding-right: 4rem;
     }

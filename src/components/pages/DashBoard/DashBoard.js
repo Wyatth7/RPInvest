@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,12 +14,22 @@ import { Helmet } from "react-helmet";
 // COMPONENTS
 import Modal from "./Modal/Modal";
 import { withRouter } from "react-router";
+import Ajax from "../../../utils/ajax";
+import AddCommod from "./Modal/ModalContent/AddCommod";
+import EditModal from "./Modal/ModalContent/EditModal";
+import DeleteModal from "./Modal/ModalContent/DeleteModal";
 
 const DashBoard = (props) => {
+  const [pageData, setPageData] = useState({});
   const [fixedPrice, setFixedPrice] = useState(false);
   const [modal, setModal] = useState(false);
+  const [commodModal, setCommodModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [commodSelected, setCommodSelected] = useState("");
   const [commodTitle, setCommodTitle] = useState("");
   const [commodPrice, setCommodPrice] = useState(0);
+  const [commodType, setCommodType] = useState("");
 
   const scrollListener = (e) => {
     e.preventDefault();
@@ -30,23 +39,23 @@ const DashBoard = (props) => {
   };
 
   useEffect(() => {
+    const call = async () => {
+      try {
+        const call = await Ajax.getDashboardData();
+        console.log(call);
+        setPageData(call.data.userData);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    call();
+  }, [setPageData]);
+
+  useEffect(() => {
     window.addEventListener("scroll", scrollListener);
     return () => window.removeEventListener("scroll", scrollListener);
   });
-
-  useEffect(() => {
-    const api = async () => {
-      try {
-        const res = await axios.get(
-          "https://www.apmex.com/silver-price?_=1616812499738"
-        );
-        console.log(res);
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
-    api();
-  }, []);
 
   useEffect(() => {
     if (modal) {
@@ -56,47 +65,80 @@ const DashBoard = (props) => {
     }
   }, [modal]);
 
+  const onAddCommodityHandler = async (e) => {
+    e.preventDefault();
+
+    try {
+      Ajax.createCommodityItem({
+        title: commodTitle,
+        amount: commodPrice,
+        type: commodType,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const onEditHandler = async (e) => {
+    e.preventDefault();
+  };
+
+  const onDeleteHandler = async (e) => {
+    e.preventDefault();
+  };
+
+  const toggleModal = () => {
+    setModal(!modal);
+    setCommodModal(false);
+    setEditModal(false);
+    setDeleteModal(false);
+  };
+
   const toggleCommodityHandler = () => {
+    setCommodModal(true);
     setModal(!modal);
   };
 
-  const addCommodityHandler = (e) => {
-    e.preventDefault();
+  const toggleEditHandler = (id) => {
+    setCommodSelected(id);
+    setEditModal(true);
+    setModal(!modal);
   };
+
+  const toggleDeleteHandler = (id) => {
+    setCommodSelected(id);
+    setDeleteModal(true);
+    setModal(!modal);
+  };
+
+  let modalType;
+
+  if (commodModal) {
+    modalType = (
+      <AddCommod
+        submit={onAddCommodityHandler}
+        price={(e) => setCommodPrice(e.target.value)}
+        type={(e) => setCommodType(e.target.value)}
+        title={(e) => setCommodTitle(e.target.value)}
+      />
+    );
+  } else if (editModal) {
+    modalType = (
+      <EditModal
+        title={(e) => setCommodTitle(e.target.value)}
+        price={(e) => setCommodPrice(e.target.value)}
+        submit={onEditHandler}
+      />
+    );
+  } else if (deleteModal) {
+    modalType = <DeleteModal submit={onDeleteHandler} />;
+  }
 
   return (
     <React.Fragment>
       {modal ? (
-        <Modal inProp={modal} close={toggleCommodityHandler}>
-          <div className="modal-content">
-            <div className="modal-content--info">
-              <div className="content">
-                <h1>Add a commodity</h1>
-                <p>
-                  When you add a commodity to your profile, you will be able to
-                  see your metals 24 hours a day, 7 days a week.
-                </p>
-              </div>
-            </div>
-            <form onSubmit={addCommodityHandler}>
-              <div className="modal-content--inputs">
-                <input
-                  onChange={(e) => setCommodTitle(e.target.value)}
-                  placeholder="Commodity Name"
-                  type="text"
-                />
-                <input
-                  onChange={(e) => setCommodPrice(e.target.value)}
-                  placeholder="Amount"
-                  type="number"
-                  min="0"
-                />
-              </div>
-              <div className="modal-content--btn">
-                <button>Add Commodity</button>
-              </div>
-            </form>
-          </div>
+        <Modal inProp={modal} close={toggleModal}>
+          {modalType}
         </Modal>
       ) : null}
       <div className="DashBoard">
@@ -138,30 +180,36 @@ const DashBoard = (props) => {
           </div>
         </div>
         <div className={`chart-content `}>
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="4000" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
-          <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" />
+          {pageData.commodities
+            ? pageData.commodities.map((el) => (
+                <AddedCommodity
+                  key={el._id}
+                  id={el._id}
+                  name={el.title}
+                  price={el.amount}
+                  date={el.date}
+                  change={el.change}
+                  edit={toggleEditHandler}
+                  delete={toggleDeleteHandler}
+                />
+              ))
+            : null}
+          {/* <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" /> */}
           {/* <ChartItem />
         <ChartItem />
       <ChartItem /> */}
         </div>
         <div className="search-add">
           <div className="total-investments">
-            <Totals amount="$40,000" />
-            <Totals title="Gold" amount="$10,000" />
-            <Totals title="Silver" amount="$20,000" />
-            <Totals title="Platnium" amount="$10,000" />
+            {pageData ? (
+              <React.Fragment>
+                <Totals amount={pageData.total} />
+                <Totals title="Gold" amount={pageData.gold} />
+                <Totals title="Silver" amount={pageData.silver} />
+                <Totals title="Platinum" amount={pageData.platinum} />
+                <Totals title="Palladium" amount={pageData.palladium} />
+              </React.Fragment>
+            ) : null}
           </div>
           <div className="search">
             <input placeholder="Search" type="search" name="search" />

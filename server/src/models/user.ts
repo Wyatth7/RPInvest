@@ -4,6 +4,7 @@ interface ICommodity extends mongoose.Document {
   title: string;
   type: string;
   amount: number;
+  change: number;
   date: string;
   increase: boolean;
 }
@@ -15,7 +16,8 @@ interface IUser extends mongoose.Document {
   total: number;
   silver: number;
   gold: number;
-  platnium: number;
+  platinum: number;
+  palladium: number;
   commodities: ICommodity[];
 }
 
@@ -45,7 +47,11 @@ const user = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  platnium: {
+  platinum: {
+    type: Number,
+    default: 0,
+  },
+  palladium: {
     type: Number,
     default: 0,
   },
@@ -61,6 +67,10 @@ const user = new mongoose.Schema({
         reuired: true,
       },
       amount: {
+        type: Number,
+        required: true,
+      },
+      change: {
         type: Number,
         required: true,
       },

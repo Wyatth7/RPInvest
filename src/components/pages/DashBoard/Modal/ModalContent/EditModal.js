@@ -18,7 +18,8 @@ const EditModal = (props) => {
             placeholder="Change title"
           />
           <input
-            type="text"
+            type="number"
+            min="0"
             onChange={props.price}
             placeholder="Change amount"
           />

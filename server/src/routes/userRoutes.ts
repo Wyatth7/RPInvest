@@ -4,12 +4,17 @@ import * as userController from "./../controllers/userController";
 
 const router = express.Router();
 
-router.post("/create", userController.createUser);
 router.patch(
   "/addCommodity",
   checkIfAuthenticated,
   userController.addCommodity
 );
+router.post("/create", userController.createUser);
 router.get("/dashboardData", checkIfAuthenticated, userController.getUserData);
+router.patch(
+  "/editCommodity",
+  checkIfAuthenticated,
+  userController.editCommodity
+);
 
 export default router;

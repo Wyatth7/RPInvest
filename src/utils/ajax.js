@@ -47,8 +47,6 @@ class Ajax {
     try {
       const [email, token] = await this.getUserData();
 
-      console.log(email, token);
-
       const newData = {
         ...data,
         email: email,

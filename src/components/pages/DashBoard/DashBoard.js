@@ -81,6 +81,16 @@ const DashBoard = (props) => {
 
   const onEditHandler = async (e) => {
     e.preventDefault();
+
+    try {
+      await Ajax.editCommodityTab({
+        title: commodTitle,
+        amount: commodPrice,
+        id: commodSelected,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const onDeleteHandler = async (e) => {

@@ -5,7 +5,7 @@ const Totals = (props) => {
     <div className="Totals">
       <h2>Total {props.title} Investments</h2>
       <div className="amount">
-        <h1>{props.amount}</h1>
+        <h1>${props.amount}</h1>
         <p>{props.change}</p>
       </div>
     </div>

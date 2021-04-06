@@ -21,7 +21,6 @@ export const checkIfAuthenticated: RequestHandler = async (req, res, next) => {
     try {
       const userInfo = await admin.auth().verifyIdToken(authtoken);
 
-      console.log("here");
       if (!userInfo) {
         req.authtoken = "";
         return next(new Error("You are not logged in, please sign in"));

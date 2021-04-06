@@ -14,10 +14,16 @@ const AddedCommodity = (props) => {
         <h3 className="date">{props.date}</h3>
       </div>
       <div className="edit-delete">
-        <button onClick={() => props.edit(props.id)} className="edit">
+        <button
+          onClick={() => props.edit(props.id, props.type)}
+          className="edit"
+        >
           Edit
         </button>
-        <button onClick={() => props.delete(props.id)} className="delete">
+        <button
+          onClick={() => props.delete(props.id, props.type)}
+          className="delete"
+        >
           Delete
         </button>
       </div>

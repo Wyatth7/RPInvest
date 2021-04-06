@@ -16,5 +16,10 @@ router.patch(
   checkIfAuthenticated,
   userController.editCommodity
 );
+router.patch(
+  "/deleteCommodity",
+  checkIfAuthenticated,
+  userController.deleteCommodity
+);
 
 export default router;

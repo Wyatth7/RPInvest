@@ -59,22 +59,20 @@ class Ajax {
         token
       );
 
-      console.log("call", call);
-
       return call;
     } catch (err) {
       console.log(err);
     }
   }
 
-  static async deleteCommodityTab() {
+  static async deleteCommodityTab(data) {
     try {
       const [email, token] = await this.getUserData();
 
       return await this.callServer(
         `${this.authPath}/deleteCommodity`,
         "patch",
-        null,
+        data,
         token,
         email
       );

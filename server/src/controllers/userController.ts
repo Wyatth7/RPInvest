@@ -8,11 +8,13 @@ import getUserEmail from "./../utils/getUserEmail";
 
 export const addCommodity: RequestHandler = async (req, res, next) => {
   const reqData = req.body;
-  console.log("herre");
 
   const date = new Date().toLocaleDateString();
 
   try {
+    // let setter = {$set: {}};
+    // setter.$set[`${reqData.type}.`] = false;
+
     await User.findOneAndUpdate(
       { email: reqData.email },
       {
@@ -25,6 +27,10 @@ export const addCommodity: RequestHandler = async (req, res, next) => {
             change: 0,
             increase: false,
           },
+        },
+        $inc: {
+          total: reqData.amount,
+          [`${reqData.type}`]: reqData.amount,
         },
       }
     );
@@ -41,7 +47,6 @@ export const addCommodity: RequestHandler = async (req, res, next) => {
 
 export const createUser: RequestHandler = async (req, res, next) => {
   const data = req.body;
-  console.log(data);
 
   if (data.cofPass !== data.pass) {
     return sendRes(res, 400, "Confirm password does not match password.");
@@ -66,20 +71,71 @@ export const createUser: RequestHandler = async (req, res, next) => {
   }
 };
 
+export const deleteCommodity: RequestHandler = async (req, res, next) => {
+  try {
+    const deleteData = await User.findOne({
+      email: req.rawHeaders[getUserEmail(req.rawHeaders)],
+      "commodities._id": req.body.id,
+    });
+
+    if (!deleteData) {
+      return sendRes(res, 400, "Could not ...");
+    }
+
+    const amount = deleteData.commodities
+      .map((el: any) => {
+        if (el._id.toString() === req.body.id) {
+          return el.amount;
+        } else {
+          return -1;
+        }
+      })
+      .filter((el) => el !== -1);
+
+    await User.findOneAndUpdate(
+      {
+        email: req.rawHeaders[getUserEmail(req.rawHeaders)],
+      },
+      {
+        $inc: {
+          total: -parseInt(amount[0]),
+          [`${req.body.type}`]: -parseInt(amount[0]),
+        },
+        $pull: {
+          commodities: {
+            _id: req.body.id,
+          },
+        },
+      }
+    );
+
+    res.status(200).json({ message: "Deleted" });
+  } catch (err) {
+    console.log(err);
+    sendRes(res, 400, "Could not edit commodity tab.");
+  }
+};
+
 export const editCommodity: RequestHandler = async (req, res, next) => {
   try {
-    // getting array element from client, now need to
-    // query commodity items for the object with the
-    // matching id.
     await User.findOneAndUpdate(
-      { email: req.rawHeaders[getUserEmail(req.rawHeaders)] },
+      {
+        email: req.rawHeaders[getUserEmail(req.rawHeaders)],
+        "commodities._id": req.body.id,
+      },
       {
         $set: {
           "commodities.$.title": req.body.title,
+        },
+        $inc: {
+          total: req.body.amount,
+          [`${req.body.type}`]: req.body.amount,
           "commodities.$.amount": req.body.amount,
         },
       }
     );
+
+    res.status(200).json({ message: "Commodity edited" });
   } catch (err) {
     console.log(err);
     sendRes(res, 400, "Could not edit commodity tab.");

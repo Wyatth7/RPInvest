@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,6 +22,7 @@ const DashBoard = (props) => {
   const [pageData, setPageData] = useState({});
   const [fixedPrice, setFixedPrice] = useState(false);
   const [modal, setModal] = useState(false);
+  const [reRender, setRerender] = useState(false);
   const [commodModal, setCommodModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
@@ -42,7 +42,6 @@ const DashBoard = (props) => {
     const call = async () => {
       try {
         const call = await Ajax.getDashboardData();
-        console.log(call);
         setPageData(call.data.userData);
       } catch (err) {
         console.log(err);
@@ -50,7 +49,7 @@ const DashBoard = (props) => {
     };
 
     call();
-  }, [setPageData]);
+  }, [setPageData, reRender]);
 
   useEffect(() => {
     window.addEventListener("scroll", scrollListener);
@@ -74,6 +73,9 @@ const DashBoard = (props) => {
         amount: commodPrice,
         type: commodType,
       });
+      setModal(!modal);
+      setCommodModal(false);
+      setRerender(!reRender);
     } catch (err) {
       console.log(err);
     }
@@ -87,7 +89,11 @@ const DashBoard = (props) => {
         title: commodTitle,
         amount: commodPrice,
         id: commodSelected,
+        type: commodType,
       });
+      setModal(!modal);
+      setEditModal(false);
+      setRerender(!reRender);
     } catch (err) {
       console.log(err);
     }
@@ -95,12 +101,21 @@ const DashBoard = (props) => {
 
   const onDeleteHandler = async (e) => {
     e.preventDefault();
+
+    try {
+      await Ajax.deleteCommodityTab({ id: commodSelected, type: commodType });
+      setModal(!modal);
+      setDeleteModal(false);
+      setRerender(!reRender);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const toggleModal = () => {
     setModal(!modal);
-    setCommodModal(false);
     setEditModal(false);
+    setCommodModal(false);
     setDeleteModal(false);
   };
 
@@ -109,15 +124,17 @@ const DashBoard = (props) => {
     setModal(!modal);
   };
 
-  const toggleEditHandler = (id) => {
-    setCommodSelected(id);
+  const toggleEditHandler = (id, type) => {
     setEditModal(true);
+    setCommodSelected(id);
+    setCommodType(type);
     setModal(!modal);
   };
 
-  const toggleDeleteHandler = (id) => {
-    setCommodSelected(id);
+  const toggleDeleteHandler = (id, type) => {
     setDeleteModal(true);
+    setCommodSelected(id);
+    setCommodType(type);
     setModal(!modal);
   };
 
@@ -195,6 +212,7 @@ const DashBoard = (props) => {
                 <AddedCommodity
                   key={el._id}
                   id={el._id}
+                  type={el.type}
                   name={el.title}
                   price={el.amount}
                   date={el.date}
@@ -204,10 +222,6 @@ const DashBoard = (props) => {
                 />
               ))
             : null}
-          {/* <AddedCommodity name="Weekly Buy" price="400" date="12-24-20" /> */}
-          {/* <ChartItem />
-        <ChartItem />
-      <ChartItem /> */}
         </div>
         <div className="search-add">
           <div className="total-investments">

@@ -191,7 +191,7 @@ const DashBoard = (props) => {
               <button>Prices</button>
             </div>
             <div className="your-total">
-              <p>$23,480</p>
+              {pageData ? <p>${pageData.total}</p> : <p>$0</p>}
               <div>
                 <FontAwesomeIcon className="arrow-icon" icon={solid.faSortUp} />
               </div>

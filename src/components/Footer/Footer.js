@@ -1,4 +1,5 @@
 import React from "react";
+import HashLinks from "../Nav/NavLinks/HashLinks/HashLinks";
 import BaseLink from "./../Nav/NavLinks/BaseLinks/BaseLinks";
 
 const Footer = (props) => {
@@ -7,12 +8,12 @@ const Footer = (props) => {
       <div className="footer-links">
         <div className="group-links">
           <BaseLink to="/" title="Home" />
-          <BaseLink to="/how-it-works" title="How It Works" />
+          <HashLinks to="/#how-it-works" title="How It Works" />
           <BaseLink to="/login" title="Login" />
         </div>
         <div className="group-links">
-          <BaseLink to="/about" title="About" />
-          <BaseLink to="/contact" title="Contact" />
+          <HashLinks to="/#about" title="About" />
+          <HashLinks to="/#contact" title="Contact" />
         </div>
       </div>
       <div className="copyright">

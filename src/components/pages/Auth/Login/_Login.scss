@@ -5,4 +5,21 @@
   align-items: center;
   height: 80vh;
   background-color: $black;
+
+  .reset {
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.3rem;
+
+    span {
+      .reset-btn {
+        margin-left: 0.5rem;
+        text-decoration: none;
+        color: $red;
+        border-bottom: 1px solid $red;
+      }
+    }
+  }
 }

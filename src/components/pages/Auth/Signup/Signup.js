@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { withRouter } from "react-router";
 
 import Auth from "../Auth";
 
@@ -51,6 +52,8 @@ const Signup = (props) => {
         pass: pass,
         cofPass: cofPass,
       });
+      props.setAuth();
+      props.history.push("/dashboard");
     } catch (err) {
       console.log(err);
     }
@@ -118,4 +121,4 @@ const Signup = (props) => {
   );
 };
 
-export default Signup;
+export default withRouter(Signup);

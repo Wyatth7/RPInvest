@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router";
 
-// FIREBASE
-import firebase from "firebase";
-import firebaseConfig from "./utils/firebaseConfig";
-
 // COMPONENTS
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Nav/Nav";
@@ -12,24 +8,42 @@ import Login from "./components/pages/Auth/Login/Login";
 import Signup from "./components/pages/Auth/Signup/Signup";
 import Homepage from "./components/pages/HomePage/HomePage";
 import DashBoard from "./components/pages/DashBoard/DashBoard";
+import AboutMetals from "./components/pages/AboutMetals/AboutMetals";
+import PageNotFound from "./components/pages/PageNotFound/PageNotFound";
+import Profile from "./components/pages/Profile/Profile";
 
 // STYLES
 import "./styles/css/styles.css";
-import Prices from "./components/pages/Prices/Prices";
-import AboutMetals from "./components/pages/AboutMetals/AboutMetals";
-import PageNotFound from "./components/pages/PageNotFound/PageNotFound";
+import ResetPassword from "./components/pages/Auth/ResetPassword/ResetPassword";
 
 function App() {
+  const [authenticated, setauthenticated] = useState(false);
+
+  const onLoginHandler = () => {
+    setauthenticated(!authenticated);
+  };
+
   return (
     <div className="App">
       <div className="main-wrapper">
-        <Nav />
+        <Nav auth={authenticated} />
         <div className="pages">
           <Switch>
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            {/* <Route path="/profile" component={Profile} /> */}
+            {/* <Route path="/login" component={Login} /> */}
+            <Route path="/login">
+              <Login setAuth={onLoginHandler} />
+            </Route>
+            <Route path="/signup">
+              <Signup setAuth={onLoginHandler} />
+            </Route>
+            <Route path="/reset" component={ResetPassword} />
             <Route path="/about" component={Homepage} />
-            <Route path="/dashboard" component={DashBoard} />
+            {authenticated ? (
+              <Route path="/dashboard" component={DashBoard} />
+            ) : (
+              <Route exact path="/" component={Homepage} />
+            )}
             <Route path="/gold" component={AboutMetals} />
             <Route exact path="/" component={Homepage} />
             <Route component={PageNotFound} />

@@ -35,6 +35,10 @@
 
   .nav-items {
     display: none;
+
+    .logout {
+      cursor: pointer;
+    }
   }
 }
 

@@ -111,7 +111,7 @@
 
     div {
       &:not(:last-of-type) {
-        margin-right: 2rem;
+        // margin-right: 2rem;
       }
     }
   }
@@ -282,6 +282,18 @@
   }
 }
 
+@media only screen and (min-width: 458px) {
+  .DashBoard {
+    .chart-content {
+      div {
+        &:not(:last-of-type) {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (min-width: 1200px) {
   .DashBoard {
     display: flex;
@@ -367,6 +379,12 @@
     .chart-content {
       width: 60%;
       justify-content: flex-start;
+
+      // &:not(:last-of-type) {
+      //   div {
+      //     margin-right: 1.5rem;
+      //   }
+      // }
     }
   }
 

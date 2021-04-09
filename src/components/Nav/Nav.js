@@ -1,13 +1,22 @@
 import React from "react";
 import BaseLinks from "./NavLinks/BaseLinks/BaseLinks";
 import LoginLink from "./NavLinks/LoginLink/LoginLink";
+import HashLinks from "./NavLinks/HashLinks/HashLinks";
+
+import firebase from "firebase/app";
 
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as solid from "@fortawesome/free-solid-svg-icons";
-import HashLinks from "./NavLinks/HashLinks/HashLinks";
+import { withRouter } from "react-router";
 
 const Nav = (props) => {
+  const onLogoutHandler = async () => {
+    await firebase.auth().signOut();
+    props.history.push("/");
+    window.location.reload();
+  };
+
   return (
     <div className="Nav">
       <div className="nav-logo">
@@ -24,11 +33,26 @@ const Nav = (props) => {
         />
         <HashLinks className="generic-btn" to="/#about" title="About" />
         <HashLinks className="generic-btn" to="/#contact" title="Contact" />
-        <BaseLinks className="generic-btn" to="/dashboard" title="Dashboard" />
-        <LoginLink className="login-btn" title="Login" />
+        {props.auth ? (
+          <React.Fragment>
+            <BaseLinks
+              className="generic-btn"
+              to="/dashboard"
+              title="Dashboard"
+            />
+            <button
+              onClick={onLogoutHandler}
+              className="logout login-btn LoginLink"
+            >
+              <p>Logout</p>
+            </button>
+          </React.Fragment>
+        ) : (
+          <LoginLink className="login-btn" title="Login" link="login" />
+        )}
       </div>
     </div>
   );
 };
 
-export default Nav;
+export default withRouter(Nav);

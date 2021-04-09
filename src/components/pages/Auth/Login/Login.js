@@ -8,6 +8,7 @@ import firebaseConfig from "./../../../../utils/firebaseConfig";
 // COMPONENTS
 import Auth from "../Auth";
 import { withRouter } from "react-router";
+import { NavLink } from "react-router-dom";
 
 // ui.start("./../../../../utils/firebaseConfig.js", uiconfig);
 
@@ -24,6 +25,7 @@ const Login = (props) => {
       .auth()
       .signInWithEmailAndPassword(email, pass)
       .then((userCredential) => {
+        props.setAuth();
         props.history.push("/dashboard");
       })
       .catch((error) => {
@@ -62,6 +64,14 @@ const Login = (props) => {
           <div>
             <button>Login</button>
           </div>
+          <p className="reset">
+            Can't remember your password?
+            <span className="reset-btn">
+              <NavLink className="reset-btn" to="/reset">
+                reset
+              </NavLink>
+            </span>
+          </p>
         </form>
       </Auth>
     </div>

@@ -1,0 +1,74 @@
+.Profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__username {
+    width: 100%;
+
+    h2 {
+      text-align: center;
+      color: $gray;
+      font-size: 3rem;
+      font-weight: 400;
+    }
+  }
+
+  &__email-pass {
+    margin-top: 2rem;
+    width: 100%;
+
+    .email,
+    .reset {
+      width: 100%;
+      text-align: center;
+      color: $gray;
+    }
+
+    .reset {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1030px) {
+  .Profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &--username {
+      width: 100%;
+
+      h2 {
+        text-align: center;
+        color: $gray;
+        font-size: 3rem;
+        font-weight: 400;
+      }
+    }
+
+    &--email-pass {
+      margin-top: 2rem;
+      width: 100%;
+
+      .email,
+      .reset {
+        width: 100%;
+        text-align: center;
+        color: $gray;
+      }
+
+      .reset {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        width: 100%;
+      }
+    }
+  }
+}

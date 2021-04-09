@@ -307,6 +307,8 @@ body {
     color: #dddddd; }
   .Nav .nav-items {
     display: none; }
+    .Nav .nav-items .logout {
+      cursor: pointer; }
 
 @media only screen and (min-width: 1030px) {
   .Nav .nav-bars {
@@ -407,7 +409,7 @@ body {
         background-color: #f48383;
         border-color: #f48383; }
   .Auth .auth-link {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex; }
     .Auth .auth-link .link-text,
     .Auth .auth-link p {
@@ -426,6 +428,30 @@ body {
   align-items: center;
   height: 80vh;
   background-color: #222831; }
+  .Login .reset {
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.3rem; }
+    .Login .reset span .reset-btn {
+      margin-left: 0.5rem;
+      text-decoration: none;
+      color: #f05454;
+      border-bottom: 1px solid #f05454; }
+
+.ResetPassword {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .ResetPassword form {
+    width: 100%; }
+    .ResetPassword form input {
+      margin-bottom: 1rem;
+      width: 100%; }
 
 .Signup {
   display: flex;
@@ -514,8 +540,6 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     height: fit-content; }
-    .DashBoard .chart-content div:not(:last-of-type) {
-      margin-right: 2rem; }
   .DashBoard .search-add {
     display: none; }
 
@@ -627,6 +651,10 @@ body {
       .modal-content--btn button:hover {
         background-color: #f48383;
         border-color: #f48383; }
+
+@media only screen and (min-width: 458px) {
+  .DashBoard .chart-content div:not(:last-of-type) {
+    margin-right: 0.5rem; } }
 
 @media only screen and (min-width: 1200px) {
   .DashBoard {
@@ -1126,3 +1154,55 @@ body {
 @media only screen and (min-width: 1480px) {
   .Modal__content {
     width: 60%; } }
+
+.Profile {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .Profile__username {
+    width: 100%; }
+    .Profile__username h2 {
+      text-align: center;
+      color: #dddddd;
+      font-size: 3rem;
+      font-weight: 400; }
+  .Profile__email-pass {
+    margin-top: 2rem;
+    width: 100%; }
+    .Profile__email-pass .email,
+    .Profile__email-pass .reset {
+      width: 100%;
+      text-align: center;
+      color: #dddddd; }
+    .Profile__email-pass .reset {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      width: 100%; }
+
+@media only screen and (min-width: 1030px) {
+  .Profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .Profile--username {
+      width: 100%; }
+      .Profile--username h2 {
+        text-align: center;
+        color: #dddddd;
+        font-size: 3rem;
+        font-weight: 400; }
+    .Profile--email-pass {
+      margin-top: 2rem;
+      width: 100%; }
+      .Profile--email-pass .email,
+      .Profile--email-pass .reset {
+        width: 100%;
+        text-align: center;
+        color: #dddddd; }
+      .Profile--email-pass .reset {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        width: 100%; } }

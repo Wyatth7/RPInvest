@@ -3,7 +3,11 @@ import { NavLink } from "react-router-dom";
 
 const NavLinks = (props) => {
   return (
-    <NavLink className={`BaseLinks ${props.className}`} to={props.to}>
+    <NavLink
+      onClick={props.onClick}
+      className={`BaseLinks ${props.className}`}
+      to={props.to}
+    >
       <p>{props.title}</p>
     </NavLink>
   );

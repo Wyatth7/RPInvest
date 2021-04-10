@@ -10,7 +10,6 @@ import Homepage from "./components/pages/HomePage/HomePage";
 import DashBoard from "./components/pages/DashBoard/DashBoard";
 import AboutMetals from "./components/pages/AboutMetals/AboutMetals";
 import PageNotFound from "./components/pages/PageNotFound/PageNotFound";
-import Profile from "./components/pages/Profile/Profile";
 
 // STYLES
 import "./styles/css/styles.css";

@@ -64,14 +64,16 @@ const Login = (props) => {
           <div>
             <button>Login</button>
           </div>
-          <p className="reset">
-            Can't remember your password?
-            <span className="reset-btn">
-              <NavLink className="reset-btn" to="/reset">
-                reset
-              </NavLink>
-            </span>
-          </p>
+          <div className="reset-item">
+            <p className="reset">
+              Can't remember your password?
+              <span className="reset-btn">
+                <NavLink className="reset-btn" to="/reset">
+                  reset
+                </NavLink>
+              </span>
+            </p>
+          </div>
         </form>
       </Auth>
     </div>

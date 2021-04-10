@@ -18,7 +18,7 @@ const Homepage = (props) => {
           <h1>Royal Port Metals</h1>
           <h2>Keep track of your commodity investments.</h2>
         </div>
-        <LoginLink className="get-started" title="Get Started" />
+        <LoginLink className="get-started" title="Get Started" link="login" />
       </div>
       <SectionElement
         bkStyle={{ backgroundColor: "#222831" }}

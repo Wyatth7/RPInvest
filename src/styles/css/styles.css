@@ -309,6 +309,16 @@ body {
     display: none; }
     .Nav .nav-items .logout {
       cursor: pointer; }
+  .Nav .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; }
+    .Nav .mobile-nav p {
+      color: #dddddd;
+      font-size: 2.5rem;
+      margin-bottom: 2rem; }
 
 @media only screen and (min-width: 1030px) {
   .Nav .nav-bars {
@@ -428,17 +438,22 @@ body {
   align-items: center;
   height: 80vh;
   background-color: #222831; }
-  .Login .reset {
-    margin: 1rem 0 0 0;
+  .Login .reset-item {
     display: flex;
     justify-content: center;
-    width: 100%;
-    font-size: 1.3rem; }
-    .Login .reset span .reset-btn {
-      margin-left: 0.5rem;
-      text-decoration: none;
-      color: #f05454;
-      border-bottom: 1px solid #f05454; }
+    padding: 0 2rem; }
+    .Login .reset-item .reset {
+      margin: 1rem 0 0 0;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      font-size: 1.3rem;
+      text-align: center; }
+      .Login .reset-item .reset span .reset-btn {
+        margin-left: 0.5rem;
+        text-decoration: none;
+        color: #f05454;
+        border-bottom: 1px solid #f05454; }
 
 .ResetPassword {
   width: 100%;
@@ -1125,7 +1140,7 @@ body {
     height: 100%;
     background-color: #222831b2;
     z-index: 1500; }
-  .Modal__content {
+  .Modal__nav-content, .Modal__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1134,22 +1149,26 @@ body {
     position: inherit;
     z-index: 2000;
     overflow: hidden;
-    width: 80%;
-    height: 50%;
     background-color: #30475e;
     border: 1px solid #222831;
     border-radius: 6px; }
-    .Modal__content .close-icon {
+    .Modal__nav-content .close-icon, .Modal__content .close-icon {
       cursor: pointer;
       font-size: 2rem;
       margin-bottom: 1rem;
       position: fixed;
       color: #fff; }
-    .Modal__content .dynamic-content {
+    .Modal__nav-content .dynamic-content, .Modal__content .dynamic-content {
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center; }
+  .Modal__content {
+    width: 80%;
+    height: 50%; }
+  .Modal__nav-content {
+    width: 100%;
+    height: 100%; }
 
 @media only screen and (min-width: 1480px) {
   .Modal__content {

@@ -11,12 +11,12 @@ import AddedCommodity from "./AddedCommodity/AddedCommodity";
 import { Helmet } from "react-helmet";
 
 // COMPONENTS
-import Modal from "./Modal/Modal";
+import Modal from "./../../Modal/Modal";
 import { withRouter } from "react-router";
 import Ajax from "../../../utils/ajax";
-import AddCommod from "./Modal/ModalContent/AddCommod";
-import EditModal from "./Modal/ModalContent/EditModal";
-import DeleteModal from "./Modal/ModalContent/DeleteModal";
+import AddCommod from "./../../Modal/ModalContent/AddCommod";
+import EditModal from "./../../Modal/ModalContent/EditModal";
+import DeleteModal from "./../../Modal/ModalContent/DeleteModal";
 
 const DashBoard = (props) => {
   const [pageData, setPageData] = useState({});
@@ -163,11 +163,7 @@ const DashBoard = (props) => {
 
   return (
     <React.Fragment>
-      {modal ? (
-        <Modal inProp={modal} close={toggleModal}>
-          {modalType}
-        </Modal>
-      ) : null}
+      {modal ? <Modal close={toggleModal}>{modalType}</Modal> : null}
       <div className="DashBoard">
         <Helmet>
           <title>Dashboard | Royal Port Metals</title>

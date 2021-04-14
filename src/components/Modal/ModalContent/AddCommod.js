@@ -13,6 +13,7 @@ const AddCommod = (props) => {
         </div>
       </div>
       <form onSubmit={props.submit}>
+        {props.isError ? <p className="modal-error">{props.err}</p> : null}
         <div className="modal-content--inputs">
           <input
             onChange={props.title}
@@ -21,7 +22,7 @@ const AddCommod = (props) => {
           />
           <input
             onChange={props.price}
-            placeholder="Amount"
+            placeholder="Ounces"
             type="number"
             min="0"
           />

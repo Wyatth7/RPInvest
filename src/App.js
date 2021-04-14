@@ -14,6 +14,8 @@ import PageNotFound from "./components/pages/PageNotFound/PageNotFound";
 // STYLES
 import "./styles/css/styles.css";
 import ResetPassword from "./components/pages/Auth/ResetPassword/ResetPassword";
+import PriceItem from "./components/pages/Prices/PricesItem/PriceItem";
+import Prices from "./components/pages/Prices/Prices";
 
 function App() {
   const [authenticated, setauthenticated] = useState(false);
@@ -44,6 +46,7 @@ function App() {
               <Route exact path="/" component={Homepage} />
             )}
             <Route path="/gold" component={AboutMetals} />
+            <Route path="/prices" component={Prices} />
             <Route exact path="/" component={Homepage} />
             <Route component={PageNotFound} />
           </Switch>

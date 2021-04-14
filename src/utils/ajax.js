@@ -117,6 +117,17 @@ class Ajax {
   //   return await this.callServer(`${this.apiDashboardPath}/${path}`, "get");
   // }
 
+  static async searchString(string) {
+    const [email, token] = await this.getUserData();
+    return await this.callServer(
+      `${this.authPath}/queryCommodities/${string}`,
+      "get",
+      null,
+      token,
+      email
+    );
+  }
+
   /**
    * Sends req to server to sign a user up
    * @param {Object} data Data used to create a user

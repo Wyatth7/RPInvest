@@ -1,6 +1,9 @@
 import { RequestHandler } from "express";
 import admin from "../utils/firebase-services";
+
+// DATABASE
 import User from "./../models/user";
+import Prices from "./../models/prices";
 
 // HELPER FUNCTIONS
 import sendRes from "./../utils/sendRes";
@@ -144,14 +147,41 @@ export const editCommodity: RequestHandler = async (req, res, next) => {
 
 export const getUserData: RequestHandler = async (req, res, next) => {
   try {
+    const priceData = await Prices.findById("606cf5eefaaaa947c45b546e");
+
     const userData = await User.findOne({
       email: req.rawHeaders[getUserEmail(req.rawHeaders)],
     });
     res.status(200).json({
-      userData: userData,
+      userData,
+      priceData,
     });
   } catch (err) {
     console.log(err);
     return sendRes(res, 400, "Could not get user data.");
+  }
+};
+
+export const queryCommodities: RequestHandler = async (req, res, next) => {
+  try {
+    if (req.params.string === "") {
+      const commodities = await User.findOne({
+        email: req.rawHeaders[getUserEmail(req.rawHeaders)],
+      });
+
+      return res.status(200).json(commodities?.commodities);
+    }
+
+    const commodities = await User.findOne({
+      email: req.rawHeaders[getUserEmail(req.rawHeaders)],
+      "commodities.title": { $regex: req.params.string },
+    });
+
+    console.log(commodities?.commodities);
+
+    res.status(200).json({ userData: commodities?.commodities });
+  } catch (err) {
+    console.log(err);
+    return sendRes(res, 400, "Could not find commodity with that name");
   }
 };

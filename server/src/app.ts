@@ -8,7 +8,8 @@ const app = express();
 app.use(express.static(path.join(__dirname, "./../../build")));
 app.use(express.json());
 
-updatePrices();
+// BE CAREFUL WHEN UPDATING THIS FILE. WILL CORRUPT AND CAUSE ERRORS IN THE JS FORMAT.
+// updatePrices();
 
 app.use("/api/v1/users", userRoutes);
 

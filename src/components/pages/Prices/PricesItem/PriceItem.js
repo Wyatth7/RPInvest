@@ -5,7 +5,7 @@ const PriceItem = (props) => {
     <div className="PriceItem">
       <p className="name">{props.title}</p>
       <div>
-        <p className="price">{props.price}</p>
+        <p className="price">${props.price}</p>
         <p className="change">{props.change}</p>
       </div>
     </div>

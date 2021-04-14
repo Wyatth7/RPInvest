@@ -14,6 +14,7 @@ const DeleteModal = (props) => {
         </p>
       </div>
       <form onSubmit={props.submit}>
+        {props.isError ? <p className="modal-error">{props.err}</p> : null}
         <button>Delete tab</button>
       </form>
     </div>

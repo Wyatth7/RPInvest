@@ -1,4 +1,4 @@
-import express from "express";
+import express, { RequestHandler } from "express";
 import { checkIfAuthenticated } from "../utils/checkAuth";
 import * as userController from "./../controllers/userController";
 
@@ -20,6 +20,11 @@ router.patch(
   "/deleteCommodity",
   checkIfAuthenticated,
   userController.deleteCommodity
+);
+router.get(
+  "/queryCommodities/:string",
+  checkIfAuthenticated,
+  userController.queryCommodities
 );
 
 export default router;

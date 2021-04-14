@@ -478,6 +478,20 @@ body {
 
 .DashBoard {
   position: relative; }
+  .DashBoard .no-commodity-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff; }
+    .DashBoard .no-commodity-found h1,
+    .DashBoard .no-commodity-found p {
+      text-align: center; }
+    .DashBoard .no-commodity-found h1 {
+      margin-bottom: 1rem;
+      font-size: 2.3rem; }
+    .DashBoard .no-commodity-found p {
+      font-size: 1.5rem; }
   .DashBoard .price-tab {
     width: 100%; }
     .DashBoard .price-tab .mobile-price {
@@ -490,7 +504,8 @@ body {
       .DashBoard .price-tab .mobile-price .price-btn {
         height: 100%;
         margin: auto 0; }
-        .DashBoard .price-tab .mobile-price .price-btn button {
+        .DashBoard .price-tab .mobile-price .price-btn .price-link {
+          text-decoration: none;
           outline: none;
           margin: auto 0;
           padding: 1rem 2rem;
@@ -589,6 +604,12 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%; }
+    .edit-modal form .modal-error {
+      display: flex;
+      justify-content: center;
+      color: #f05454;
+      font-size: 2rem;
+      margin-bottom: 1rem; }
     .edit-modal form .inputs {
       display: flex;
       flex-direction: column;
@@ -623,6 +644,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center; }
+  .modal-content .modal-error {
+    width: 100%;
+    padding-right: 4rem;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    color: #f05454;
+    margin-bottom: 1rem; }
   .modal-content--inputs, .modal-content--btn, .modal-content--select {
     width: 80%; }
   .modal-content--select {

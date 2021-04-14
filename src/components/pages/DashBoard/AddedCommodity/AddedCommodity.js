@@ -9,7 +9,6 @@ const AddedCommodity = (props) => {
         <h1 className="name">{props.name}</h1>
         <div>
           <h1 className="price">${props.price}</h1>
-          <p>{props.change}</p>
         </div>
         <h3 className="date">{props.date}</h3>
       </div>

@@ -11,6 +11,7 @@ const EditModal = (props) => {
         </p>
       </div>
       <form onSubmit={props.submit}>
+        {props.isError ? <p className="modal-error">{props.err}</p> : null}
         <div className="inputs">
           <input
             type="text"

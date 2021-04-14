@@ -17,23 +17,23 @@ interface IMetalAPI {
 
 const updatePrices = async () => {
   schedule.scheduleJob("* */15 * * *", async () => {
-    // Get previous prices from database
-    const prices = await Prices.findById("606cf5eefaaaa947c45b546e");
-
-    if (!prices) {
-      return;
-    }
-
-    // Get new price data from metals-api
-    const metalsApi = await axios.get(
-      `https://metals-api.com/api/latest?access_key=${process.env.METALS_API_KEY}&base=USD&symbols=XAU,XAG,XPT,XPD`
-    );
-
-    // Format metal price data into readable number
-    const metalPrices = createMetalsPriceObject(metalsApi.data.rates);
-
     // Update metal prices in db
     try {
+      // Get previous prices from database
+      const prices = await Prices.findById("606cf5eefaaaa947c45b546e");
+
+      if (!prices) {
+        return;
+      }
+
+      // Get new price data from metals-api
+      const metalsApi = await axios.get(
+        `https://metals-api.com/api/latest?access_key=${process.env.METALS_API_KEY}&base=USD&symbols=XAU,XAG,XPT,XPD`
+      );
+
+      // Format metal price data into readable number
+      const metalPrices = createMetalsPriceObject(metalsApi.data.rates);
+
       await Prices.findByIdAndUpdate("606cf5eefaaaa947c45b546e", {
         $set: {
           gold: metalPrices.gold,
@@ -105,17 +105,17 @@ const roundToTwo = (n: number, fixed: number) =>
 /**
  * Creates new prices db item
  */
-const createObject = async () => {
-  await Prices.create({
-    gold: 0,
-    silver: 0,
-    platinum: 0,
-    palladium: 0,
-    goldChange: 0,
-    silverChange: 0,
-    platinumChange: 0,
-    palladiumChange: 0,
-  });
-};
+// const createObject = async () => {
+//   await Prices.create({
+//     gold: 0,
+//     silver: 0,
+//     platinum: 0,
+//     palladium: 0,
+//     goldChange: 0,
+//     silverChange: 0,
+//     platinumChange: 0,
+//     palladiumChange: 0,
+//   });
+// };
 
 export default updatePrices;

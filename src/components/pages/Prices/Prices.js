@@ -1,15 +1,56 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+
+import Ajax from "./../../../utils/ajax";
 
 // COMPONENTS
 import PriceItem from "./PricesItem/PriceItem";
 
 const Prices = (props) => {
+  const [priceData, setPriceData] = useState({});
+
+  useEffect(() => {
+    const getPrices = async () => {
+      const prices = await Ajax.getMetalPrices();
+
+      setPriceData(prices.data);
+    };
+
+    getPrices();
+  }, [setPriceData]);
+
   return (
     <div className="Prices">
-      <PriceItem title="Gold" price="$1,700" change="11.50" />
-      <PriceItem title="Silver" price="$26" change="0.20" />
-      <PriceItem title="Platinum" price="$1,200" change="11.00" />
-      <PriceItem title="Copper" price="$8" change="0.10" />
+      {priceData ? (
+        <React.Fragment>
+          <PriceItem
+            title="Gold"
+            price={priceData.gold}
+            change={priceData.goldChange}
+          />
+          <PriceItem
+            title="Silver"
+            price={priceData.silver}
+            change={priceData.silverChange}
+          />
+          <PriceItem
+            title="Platnium"
+            price={priceData.platinum}
+            change={priceData.platinumChange}
+          />
+          <PriceItem
+            title="Copper"
+            price={priceData.palladium}
+            change={priceData.palladiumChange}
+          />
+        </React.Fragment>
+      ) : (
+        <div className="error">
+          <h1>Could not get price data.</h1>
+          <p>Reload the page or come back later to see metal prices.</p>
+        </div>
+      )}
     </div>
   );
 };

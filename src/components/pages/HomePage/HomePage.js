@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LoginLink from "../../Nav/NavLinks/LoginLink/LoginLink";
 import SectionElement from "./SectionElements/SectionElement";
 
@@ -6,8 +6,34 @@ import SectionElement from "./SectionElements/SectionElement";
 import * as solid from "@fortawesome/free-solid-svg-icons";
 import Instruction from "./Intruction/Instruction";
 import { Helmet } from "react-helmet";
+import Ajax from "../../../utils/ajax";
 
 const Homepage = (props) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [err, setErr] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  const sendMessageHandler = async (e) => {
+    e.preventDefault();
+
+    try {
+      await Ajax.sendMessage({ firstName, lastName, email, message });
+
+      e.target.reset();
+
+      if (setErr) {
+        setErr(false);
+      }
+      setSent(true);
+    } catch (err) {
+      setSent(false);
+      setErr(true);
+    }
+  };
+
   return (
     <div className="HomePage">
       <Helmet>
@@ -60,15 +86,24 @@ const Homepage = (props) => {
         header="Contact Us"
         hashPath="contact"
       >
-        <form>
+        <form onSubmit={sendMessageHandler}>
+          <div className="err-sent">
+            {err ? (
+              <p className="error message-alert">Could not send message.</p>
+            ) : null}
+
+            {sent ? <p className="sent message-alert">Message sent!</p> : null}
+          </div>
           <div className="name-inputs">
             <input
+              onChange={(e) => setFirstName(e.target.value)}
               placeholder="First Name"
               type="text"
               name="firstName"
               required
             />
             <input
+              onChange={(e) => setLastName(e.target.value)}
               placeholder="Last Name"
               type="text"
               name="lastName"
@@ -76,10 +111,21 @@ const Homepage = (props) => {
             />
           </div>
           <div className="email-input">
-            <input placeholder="Email" type="email" name="email" required />
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              type="email"
+              name="email"
+              required
+            />
           </div>
           <div className="message-input">
-            <textarea placeholder="Your message" name="userMessage" required />
+            <textarea
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Your message"
+              name="userMessage"
+              required
+            />
           </div>
           <div className="form-btn">
             <button>Send Message</button>

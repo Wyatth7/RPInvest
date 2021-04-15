@@ -53,6 +53,17 @@
       font-size: 2.5rem;
       margin-bottom: 2rem;
     }
+
+    .logout {
+      outline: none;
+      background-color: transparent;
+      border: none;
+
+      p {
+        background-color: transparent;
+        color: $gray;
+      }
+    }
   }
 }
 

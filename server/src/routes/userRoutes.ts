@@ -21,6 +21,7 @@ router.patch(
   checkIfAuthenticated,
   userController.deleteCommodity
 );
+router.get("/priceData", userController.getPriceData);
 router.get(
   "/queryCommodities/:string",
   checkIfAuthenticated,

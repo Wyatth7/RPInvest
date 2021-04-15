@@ -1,9 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-// ICONS
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import * as solid from "@fortawesome/free-solid-svg-icons";
-
 // import ChartItem from "./ChartItem/ChartItem";
 import PriceItem from "../Prices/PricesItem/PriceItem";
 import Totals from "./Totals/Totals";
@@ -20,10 +16,11 @@ import DeleteModal from "./../../Modal/ModalContent/DeleteModal";
 import { NavLink } from "react-router-dom";
 
 const DashBoard = (props) => {
-  const [pageData, setPageData] = useState({});
+  const [priceData, setPriceData] = useState({});
+  const [userData, setUserData] = useState({});
+  const [userCommodities, setUserCommodities] = useState([]);
   const [commodSearch, setCommodSearch] = useState("");
   const [userPrices, setUserPrices] = useState({});
-  const [fixedPrice, setFixedPrice] = useState(false);
   const [modal, setModal] = useState(false);
   const [modalErr, setModalErr] = useState(false);
   const [reRender, setRerender] = useState(false);
@@ -35,43 +32,52 @@ const DashBoard = (props) => {
   const [commodPrice, setCommodPrice] = useState(0);
   const [commodType, setCommodType] = useState("");
 
-  const scrollListener = (e) => {
-    e.preventDefault();
-    window.pageYOffset >= 157
-      ? setFixedPrice("fixed-price")
-      : setFixedPrice("");
-  };
+  // const scrollListener = (e) => {
+  //   e.preventDefault();
+  //   window.pageYOffset >= 157
+  //     ? setFixedPrice("fixed-price")
+  //     : setFixedPrice("");
+  // };
 
   // BASE AJAX CALLS & useEffects
   useEffect(() => {
     const call = async () => {
       try {
-        const call = await Ajax.getDashboardData();
-        setPageData(call.data);
+        const dashboardData = await Ajax.getDashboardData();
+        const priceData = await Ajax.getMetalPrices();
+        setUserData(dashboardData.data.userData);
+        setUserCommodities(dashboardData.data.userData.commodities);
+        setPriceData(priceData.data);
       } catch (err) {
-        console.log(err);
+        console.error(
+          "Could not get data from server, refresh the page or come back later."
+        );
       }
     };
 
     call();
-  }, [setPageData, reRender]);
+  }, [setUserData, setPriceData, setUserCommodities, reRender]);
 
   useEffect(() => {
     const timeout = setTimeout(async () => {
       try {
-        console.log(await Ajax.searchString(commodSearch));
+        if (commodSearch !== "") {
+          const searchData = await Ajax.searchString(commodSearch);
+
+          setUserCommodities(searchData.data.userData);
+        }
       } catch (err) {
-        console.log(err);
+        console.error("Could not get data from search.");
       }
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [commodSearch]);
+  }, [commodSearch, setUserCommodities]);
 
-  useEffect(() => {
-    window.addEventListener("scroll", scrollListener);
-    return () => window.removeEventListener("scroll", scrollListener);
-  });
+  // useEffect(() => {
+  //   window.addEventListener("scroll", scrollListener);
+  //   return () => window.removeEventListener("scroll", scrollListener);
+  // });
 
   const roundToTwo = useCallback(
     (n, fixed) => ~~(Math.pow(10, fixed) * n) / Math.pow(10, fixed),
@@ -92,7 +98,7 @@ const DashBoard = (props) => {
   );
 
   const totalsConversion = useCallback(() => {
-    if (!pageData.userData) {
+    if (!userData && !priceData) {
       return;
     }
 
@@ -107,7 +113,7 @@ const DashBoard = (props) => {
 
     Object.keys(totals).forEach((el) => {
       // convert price
-      const price = convertPrice(pageData.userData[el], pageData.priceData[el]);
+      const price = convertPrice(userData[el], priceData[el]);
 
       // add price to totalValue
       totalValue += price;
@@ -116,13 +122,13 @@ const DashBoard = (props) => {
       totals[el] = price;
     });
 
-    setUserPrices({ ...totals, total: totalValue });
-  }, [pageData, convertPrice]);
+    setUserPrices({ ...totals, total: totalValue.toFixed(2) });
+  }, [priceData, userData, convertPrice]);
 
   // GET PRICE FROM OZs
   useEffect(() => {
     totalsConversion();
-  }, [pageData, totalsConversion]);
+  }, [totalsConversion]);
 
   // MODALS HANDLERS
   const onAddCommodityHandler = async (e) => {
@@ -138,7 +144,6 @@ const DashBoard = (props) => {
       setCommodModal(false);
       setRerender(!reRender);
     } catch (err) {
-      console.log(err);
       setModalErr(true);
     }
   };
@@ -157,7 +162,6 @@ const DashBoard = (props) => {
       setEditModal(false);
       setRerender(!reRender);
     } catch (err) {
-      console.log(err);
       setModalErr(true);
     }
   };
@@ -171,7 +175,6 @@ const DashBoard = (props) => {
       setDeleteModal(false);
       setRerender(!reRender);
     } catch (err) {
-      console.log(err);
       setModalErr(true);
     }
   };
@@ -248,56 +251,54 @@ const DashBoard = (props) => {
         <div className="search-add-tab">
           <div className="mobile-search-add-tab">
             <div className="search">
-              <input placeholder="Search" type="search" name="search" />
+              <input
+                onChange={(e) => setCommodSearch(e.target.value)}
+                placeholder="Search"
+                type="search"
+                name="search"
+              />
             </div>
             <div className="add-item">
               <button onClick={toggleCommodityHandler} className="add-item-btn">
-                Add a Comodity
+                Add Comodity
               </button>
             </div>
           </div>
           <div className="desk-search-add-tab"></div>
         </div>
         <div className="price-tab">
-          <div className={`mobile-price ${fixedPrice}`}>
+          <div className={`mobile-price`}>
             <div className="price-btn">
               <NavLink className="price-link" to="/prices">
                 Prices
               </NavLink>
             </div>
             <div className="your-total">
-              {pageData.userData ? (
-                <p>${pageData.userData.total}</p>
-              ) : (
-                <p>$0</p>
-              )}
-              <div>
-                <FontAwesomeIcon className="arrow-icon" icon={solid.faSortUp} />
-              </div>
+              {userData ? <p>${userPrices.total}</p> : <p>$0</p>}
             </div>
           </div>
           <div className="desk-price">
-            {pageData.priceData ? (
+            {priceData ? (
               <div className="prices">
                 <PriceItem
                   title="Gold"
-                  price={pageData.priceData.gold}
-                  change={pageData.priceData.goldChange}
+                  price={priceData.gold}
+                  change={priceData.goldChange}
                 />
                 <PriceItem
                   title="Silver"
-                  price={pageData.priceData.silver}
-                  change={pageData.priceData.silverChange}
+                  price={priceData.silver}
+                  change={priceData.silverChange}
                 />
                 <PriceItem
                   title="Platnium"
-                  price={pageData.priceData.platinum}
-                  change={pageData.priceData.platinumChange}
+                  price={priceData.platinum}
+                  change={priceData.platinumChange}
                 />
                 <PriceItem
                   title="Copper"
-                  price={pageData.priceData.palladium}
-                  change={pageData.priceData.palladiumChange}
+                  price={priceData.palladium}
+                  change={priceData.palladiumChange}
                 />
               </div>
             ) : (
@@ -308,15 +309,15 @@ const DashBoard = (props) => {
           </div>
         </div>
         <div className={`chart-content `}>
-          {pageData.userData ? (
-            pageData.userData.commodities.length > 0 ? (
-              pageData.userData.commodities.map((el) => (
+          {userCommodities ? (
+            userCommodities.length > 0 ? (
+              userCommodities.map((el) => (
                 <AddedCommodity
                   key={el._id}
                   id={el._id}
                   type={el.type}
                   name={el.title}
-                  price={convertPrice(el.amount, pageData.priceData[el.type])}
+                  price={convertPrice(el.amount, priceData[el.type])}
                   date={el.date}
                   change={el.change}
                   edit={toggleEditHandler}
@@ -333,7 +334,7 @@ const DashBoard = (props) => {
         </div>
         <div className="search-add">
           <div className="total-investments">
-            {pageData.userData ? (
+            {userData ? (
               <React.Fragment>
                 <Totals amount={userPrices.total} />
                 <Totals title="Gold" amount={userPrices.gold} />

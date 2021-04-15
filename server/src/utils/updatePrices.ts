@@ -16,7 +16,7 @@ interface IMetalAPI {
 }
 
 const updatePrices = async () => {
-  schedule.scheduleJob("* */15 * * *", async () => {
+  schedule.scheduleJob("0 */15 * * *", async () => {
     // Update metal prices in db
     try {
       // Get previous prices from database

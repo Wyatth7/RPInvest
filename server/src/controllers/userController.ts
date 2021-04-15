@@ -145,16 +145,26 @@ export const editCommodity: RequestHandler = async (req, res, next) => {
   }
 };
 
-export const getUserData: RequestHandler = async (req, res, next) => {
+export const getPriceData: RequestHandler = async (req, res, next) => {
   try {
     const priceData = await Prices.findById("606cf5eefaaaa947c45b546e");
+
+    res.status(200).json(priceData);
+  } catch (err) {
+    return sendRes(res, 400, "Could not get metal prices.");
+  }
+};
+
+export const getUserData: RequestHandler = async (req, res, next) => {
+  try {
+    // const priceData = await Prices.findById("606cf5eefaaaa947c45b546e");
 
     const userData = await User.findOne({
       email: req.rawHeaders[getUserEmail(req.rawHeaders)],
     });
     res.status(200).json({
       userData,
-      priceData,
+      // priceData,
     });
   } catch (err) {
     console.log(err);

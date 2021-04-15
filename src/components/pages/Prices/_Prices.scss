@@ -2,6 +2,28 @@
   cursor: default;
   padding: 2rem;
   background-color: $black;
+
+  .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1,
+    p {
+      text-align: center;
+      color: $white;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
+  }
 }
 
 @media only screen and (min-width: 900px) {

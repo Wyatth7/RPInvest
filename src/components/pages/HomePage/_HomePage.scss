@@ -47,6 +47,24 @@
     width: 100%;
     padding: 0 1rem;
 
+    .err-sent {
+      width: 100%;
+      margin-bottom: 1rem;
+
+      .message-alert {
+        text-align: center;
+        font-size: 1.8rem;
+      }
+
+      .error {
+        color: $red;
+      }
+
+      .sent {
+        color: $green;
+      }
+    }
+
     input,
     textarea {
       width: 100%;

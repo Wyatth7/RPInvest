@@ -113,9 +113,9 @@ class Ajax {
     }
   }
 
-  // static async getMetalPrices(path) {
-  //   return await this.callServer(`${this.apiDashboardPath}/${path}`, "get");
-  // }
+  static async getMetalPrices() {
+    return await this.callServer(`${this.authPath}/priceData`, "get");
+  }
 
   static async searchString(string) {
     const [email, token] = await this.getUserData();
@@ -126,6 +126,10 @@ class Ajax {
       token,
       email
     );
+  }
+
+  static async sendMessage(data) {
+    await this.callServer("/api/v1/contact/message", "post", data);
   }
 
   /**

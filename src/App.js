@@ -14,7 +14,6 @@ import PageNotFound from "./components/pages/PageNotFound/PageNotFound";
 // STYLES
 import "./styles/css/styles.css";
 import ResetPassword from "./components/pages/Auth/ResetPassword/ResetPassword";
-import PriceItem from "./components/pages/Prices/PricesItem/PriceItem";
 import Prices from "./components/pages/Prices/Prices";
 
 function App() {

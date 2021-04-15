@@ -27,23 +27,25 @@
     width: 100%;
 
     .mobile-price {
-      display: flex;
-      justify-content: space-between;
       padding: 2rem 1rem;
       background-color: $navy;
       border-top: 1px solid $black;
       border-bottom: 1px solid $black;
+      width: 100%;
 
       .price-btn {
-        height: 100%;
-        margin: auto 0;
+        margin-bottom: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
 
         .price-link {
+          margin: 0 auto;
+          text-align: center;
+          padding: 1rem 2rem;
+          width: 100%;
           text-decoration: none;
           outline: none;
-          margin: auto 0;
-          padding: 1rem 2rem;
-          height: 100%;
           background-color: $red;
           border: 1px solid $red;
           color: $white;
@@ -56,7 +58,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: auto 0;
         height: 100%;
         font-size: 2.5rem;
 
@@ -120,6 +121,8 @@
           background-color: $red;
           border: 2px solid $red;
           color: $white;
+          font-family: "Recursive", sans-serif;
+          font-size: 1.3rem;
         }
       }
     }
@@ -131,12 +134,6 @@
     flex-wrap: wrap;
     justify-content: center;
     height: fit-content;
-
-    div {
-      &:not(:last-of-type) {
-        // margin-right: 2rem;
-      }
-    }
   }
 
   .search-add {

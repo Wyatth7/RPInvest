@@ -13,6 +13,9 @@ html {
 body {
   box-sizing: border-box; }
 
+button {
+  font: inherit; }
+
 .App {
   position: relative;
   display: flex;
@@ -90,6 +93,16 @@ body {
 .HomePage form {
   width: 100%;
   padding: 0 1rem; }
+  .HomePage form .err-sent {
+    width: 100%;
+    margin-bottom: 1rem; }
+    .HomePage form .err-sent .message-alert {
+      text-align: center;
+      font-size: 1.8rem; }
+    .HomePage form .err-sent .error {
+      color: #f05454; }
+    .HomePage form .err-sent .sent {
+      color: #61b15a; }
   .HomePage form input,
   .HomePage form textarea {
     width: 100%;
@@ -319,6 +332,13 @@ body {
       color: #dddddd;
       font-size: 2.5rem;
       margin-bottom: 2rem; }
+    .Nav .mobile-nav .logout {
+      outline: none;
+      background-color: transparent;
+      border: none; }
+      .Nav .mobile-nav .logout p {
+        background-color: transparent;
+        color: #dddddd; }
 
 @media only screen and (min-width: 1030px) {
   .Nav .nav-bars {
@@ -495,21 +515,23 @@ body {
   .DashBoard .price-tab {
     width: 100%; }
     .DashBoard .price-tab .mobile-price {
-      display: flex;
-      justify-content: space-between;
       padding: 2rem 1rem;
       background-color: #30475e;
       border-top: 1px solid #222831;
-      border-bottom: 1px solid #222831; }
+      border-bottom: 1px solid #222831;
+      width: 100%; }
       .DashBoard .price-tab .mobile-price .price-btn {
-        height: 100%;
-        margin: auto 0; }
+        margin-bottom: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center; }
         .DashBoard .price-tab .mobile-price .price-btn .price-link {
+          margin: 0 auto;
+          text-align: center;
+          padding: 1rem 2rem;
+          width: 100%;
           text-decoration: none;
           outline: none;
-          margin: auto 0;
-          padding: 1rem 2rem;
-          height: 100%;
           background-color: #f05454;
           border: 1px solid #f05454;
           color: #fff;
@@ -519,7 +541,6 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: auto 0;
         height: 100%;
         font-size: 2.5rem; }
         .DashBoard .price-tab .mobile-price .your-total p {
@@ -563,7 +584,9 @@ body {
           width: 100%;
           background-color: #f05454;
           border: 2px solid #f05454;
-          color: #fff; }
+          color: #fff;
+          font-family: "Recursive", sans-serif;
+          font-size: 1.3rem; }
   .DashBoard .chart-content {
     padding: 2rem;
     display: flex;
@@ -903,6 +926,20 @@ body {
   cursor: default;
   padding: 2rem;
   background-color: #222831; }
+  .Prices .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+    .Prices .error h1,
+    .Prices .error p {
+      text-align: center;
+      color: #fff; }
+    .Prices .error h1 {
+      margin-bottom: 1rem;
+      font-size: 2.5rem; }
+    .Prices .error p {
+      font-size: 1.8rem; }
 
 @media only screen and (min-width: 900px) {
   .Prices {
@@ -967,7 +1004,9 @@ body {
   width: 100%; }
   .PageNotFound h1 {
     font-size: 3rem;
-    color: #dddddd; }
+    color: #dddddd;
+    padding: 1.5rem;
+    text-align: center; }
   .PageNotFound .err-link {
     margin-top: 2rem;
     font-size: 1.5rem;
@@ -978,7 +1017,7 @@ body {
 
 .AddedCommodity {
   flex: 1 1 0px;
-  padding: 3rem;
+  padding: 2rem;
   margin-bottom: 2rem;
   max-width: fit-content;
   height: fit-content;
@@ -995,11 +1034,9 @@ body {
       color: #fff;
       cursor: pointer; }
     .AddedCommodity:hover .edit-delete .edit {
-      width: 45%;
       background-color: #61b15a;
       border: 1px solid #61b15a; }
     .AddedCommodity:hover .edit-delete .delete {
-      width: 45%;
       background-color: #f05454;
       border: 1px solid #f05454; }
   .AddedCommodity .info {
@@ -1024,27 +1061,29 @@ body {
     .AddedCommodity .info .date {
       font-size: 1.4rem; }
   .AddedCommodity .edit-delete {
+    margin-top: 1rem;
     visibility: hidden;
     opacity: 0;
     display: flex;
     justify-content: space-between;
+    width: 100%;
     transition: all 0.2s; }
     .AddedCommodity .edit-delete button {
       padding: 0.5rem 2rem;
-      color: #fff;
-      cursor: pointer; }
+      cursor: pointer;
+      font-size: 1.4rem;
+      color: #fff; }
     .AddedCommodity .edit-delete .edit {
-      width: 45%;
       background-color: #61b15a;
-      border: 1px solid #61b15a; }
+      border: 1px solid #61b15a;
+      margin-right: 1rem; }
     .AddedCommodity .edit-delete .delete {
-      width: 45%;
       background-color: #f05454;
       border: 1px solid #f05454; }
 
 @media only screen and (min-width: 480px) {
   .AddedCommodity {
-    padding: 1rem;
+    padding: 2rem;
     margin-bottom: 4rem; }
     .AddedCommodity:hover .edit-delete {
       width: 100%; }
@@ -1053,11 +1092,9 @@ body {
         color: #fff;
         cursor: pointer; }
       .AddedCommodity:hover .edit-delete .edit {
-        width: 100%;
         background-color: #61b15a;
         border: 1px solid #61b15a; }
       .AddedCommodity:hover .edit-delete .delete {
-        width: 100%;
         background-color: #f05454;
         border: 1px solid #f05454; }
     .AddedCommodity .info {
@@ -1089,12 +1126,11 @@ body {
         color: #fff;
         cursor: pointer; }
       .AddedCommodity .edit-delete .edit {
-        margin-right: 0.5rem;
         width: auto;
         background-color: #61b15a;
-        border: 1px solid #61b15a; }
+        border: 1px solid #61b15a;
+        margin-right: 1rem; }
       .AddedCommodity .edit-delete .delete {
-        margin-left: 0.5rem;
         width: auto;
         background-color: #f05454;
         border: 1px solid #f05454; } }
@@ -1193,7 +1229,7 @@ body {
       justify-content: center;
       align-items: center; }
   .Modal__content {
-    width: 80%;
+    width: 90%;
     height: 50%; }
   .Modal__nav-content {
     width: 100%;

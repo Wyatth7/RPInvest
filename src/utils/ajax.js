@@ -1,5 +1,4 @@
 import axios from "axios";
-import firebaseAuthFunctions from "./getAuthToken";
 
 class Ajax {
   static apiDashboardPath = "/api/v1/dashboard";
@@ -7,8 +6,8 @@ class Ajax {
 
   static async getUserData() {
     try {
-      const token = await firebaseAuthFunctions.getAuthToken();
-      const email = await firebaseAuthFunctions.getUserEmail();
+      const token = localStorage.getItem("authTokenRPM");
+      const email = localStorage.getItem("userEmailRPM");
 
       return [email, token];
     } catch (err) {
@@ -119,6 +118,7 @@ class Ajax {
 
   static async searchString(string) {
     const [email, token] = await this.getUserData();
+
     return await this.callServer(
       `${this.authPath}/queryCommodities/${string}`,
       "get",

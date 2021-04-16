@@ -19,6 +19,7 @@ const Nav = (props) => {
 
   const onLogoutHandler = async () => {
     await firebase.auth().signOut();
+    localStorage.removeItem("authTokenRPM");
     props.history.push("/");
     window.location.reload();
   };

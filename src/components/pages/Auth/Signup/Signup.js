@@ -4,6 +4,9 @@ import { withRouter } from "react-router";
 
 import Auth from "../Auth";
 
+// FIREBASE
+import firebase from "firebase/app";
+
 import Ajax from "./../../../../utils/ajax";
 
 const Signup = (props) => {
@@ -12,6 +15,7 @@ const Signup = (props) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [cofPass, setCofPass] = useState("");
+  const [error, setError] = useState(false);
 
   // useEffect(() => {
   //   const signup = async () => {
@@ -42,8 +46,6 @@ const Signup = (props) => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // setSubmitted(true);
-    // setSubmitted(false);
     try {
       await Ajax.signup({
         firstname: fn,
@@ -52,16 +54,29 @@ const Signup = (props) => {
         pass: pass,
         cofPass: cofPass,
       });
+      await firebase.auth().signInWithEmailAndPassword(email, pass);
+      localStorage.setItem(
+        "authTokenRPM",
+        await firebase.auth().currentUser.getIdToken()
+      );
+      localStorage.setItem(
+        "userEmailRPM",
+        await firebase.auth().currentUser.email
+      );
+
       props.setAuth();
       props.history.push("/dashboard");
     } catch (err) {
-      console.log(err);
+      setError(true);
+      e.target.reset();
     }
   };
 
   return (
     <div className="Signup">
       <Auth
+        isError={error}
+        errMessage="There was a problem signing you up."
         path="Sign up"
         header="Customer Signup"
         secondaryHeader="Sign up to create a portfolio."

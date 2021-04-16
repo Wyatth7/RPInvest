@@ -415,6 +415,12 @@ button {
   .Auth .auth-header h3 {
     font-size: 2rem;
     font-weight: 200; }
+  .Auth .auth-error {
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #f05454; }
   .Auth .auth-content form {
     padding: 0 2rem; }
     .Auth .auth-content form input {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router";
 
 // COMPONENTS
@@ -18,6 +18,12 @@ import Prices from "./components/pages/Prices/Prices";
 
 function App() {
   const [authenticated, setauthenticated] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("authTokenRPM")) {
+      setauthenticated(true);
+    }
+  }, [setauthenticated]);
 
   const onLoginHandler = () => {
     setauthenticated(!authenticated);

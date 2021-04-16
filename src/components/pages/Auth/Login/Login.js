@@ -17,6 +17,7 @@ firebase.default.initializeApp(firebaseConfig);
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [error, setError] = useState(false);
 
   const onLoginHandler = (e) => {
     e.preventDefault();
@@ -25,19 +26,31 @@ const Login = (props) => {
       .auth()
       .signInWithEmailAndPassword(email, pass)
       .then((userCredential) => {
-        props.setAuth();
-        props.history.push("/dashboard");
+        userCredential.user
+          .getIdToken()
+          .then((res) => {
+            console.log(res);
+            localStorage.setItem("authTokenRPM", res);
+            console.log(localStorage.getItem("authTokenRPM"));
+
+            props.setAuth();
+            props.history.push("/dashboard");
+          })
+          .catch((err) => console.log(err));
+
+        localStorage.setItem("userEmailRPM", userCredential.user.email);
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        setError(true);
+        e.target.reset();
       });
   };
 
   return (
     <div className="Login">
       <Auth
+        isError={error}
+        errMessage="There was a problem logging you in."
         path="Login"
         header="Customer Login"
         secondaryHeader="Login to check your portfolio."

@@ -1,4 +1,4 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
 
 export const getAuthToken = async () => {
   try {
@@ -10,7 +10,7 @@ export const getAuthToken = async () => {
 
 export const getUserEmail = async () => {};
 
-class firebaseAuthFunctions {
+export class FirebaseAuthFunctions {
   static async getAuthToken() {
     try {
       return await firebase.auth().currentUser.getIdToken(false);
@@ -21,11 +21,15 @@ class firebaseAuthFunctions {
 
   static async getUserEmail() {
     try {
-      return await firebase.auth().currentUser.email;
+      return await (
+        await firebase
+          .auth()
+          .signInWithCustomToken(localStorage.getItem("authToken"))
+      ).user.email;
     } catch (err) {
       console.log(err);
     }
   }
 }
 
-export default firebaseAuthFunctions;
+export default FirebaseAuthFunctions;

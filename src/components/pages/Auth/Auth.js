@@ -12,6 +12,11 @@ const Auth = (props) => {
         <h1>{props.header}</h1>
         <h3>{props.secondaryHeader}</h3>
       </div>
+      {props.isError ? (
+        <div className="auth-error">
+          <p>{props.errMessage}</p>
+        </div>
+      ) : null}
       <div className="auth-content">{props.children}</div>
       <div className="auth-link">
         <p>{props.authLinkText}</p>

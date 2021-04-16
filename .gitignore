@@ -9,18 +9,16 @@
 /coverage
 
 # production
-/build
+/Architecture
 
-# github
-/server/dist
+/server/src
 /server/dist/utils/firebase-services.js
 /server/src/utils/firebase-services.ts
 config.env
 firebase-admin-sdk.json
-/src/utils/firebaseConfig.js
-/src/utils/firebaseui.js
-/src/utils/uiconfig.js
+/src
 
+# github
 
 # misc
 .DS_Store

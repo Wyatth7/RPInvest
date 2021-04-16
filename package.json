@@ -43,7 +43,7 @@
     "xss-clean": "^0.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "comp:sass": "node-sass src/styles/scss/main.scss src/styles/css/styles.css -w",
     "start:server": "nodemon server/dist/server.js",
     "build": "react-scripts build",

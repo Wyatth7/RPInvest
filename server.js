@@ -7,7 +7,7 @@ var __importDefault =
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 // var path_1 = __importDefault(require("path"));
-var app_1 = __importDefault(require("./server/app"));
+var app_1 = __importDefault(require("./server/dist/app"));
 // var dotenv_1 = __importDefault(require("dotenv"));
 var mongoose_1 = __importDefault(require("mongoose"));
 // dotenv_1.default.config({ path: path_1.default.resolve(__dirname, "../config.env") });

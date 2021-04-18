@@ -32,13 +32,6 @@ const DashBoard = (props) => {
   const [commodPrice, setCommodPrice] = useState(0);
   const [commodType, setCommodType] = useState("");
 
-  // const scrollListener = (e) => {
-  //   e.preventDefault();
-  //   window.pageYOffset >= 157
-  //     ? setFixedPrice("fixed-price")
-  //     : setFixedPrice("");
-  // };
-
   // BASE AJAX CALLS & useEffects
   useEffect(() => {
     const call = async () => {
@@ -63,7 +56,6 @@ const DashBoard = (props) => {
       const priceData = await Ajax.getMetalPrices();
       setPriceData(priceData.data);
     };
-
     call();
   }, [setPriceData]);
 

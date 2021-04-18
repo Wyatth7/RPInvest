@@ -162,6 +162,7 @@ export const getUserData: RequestHandler = async (req, res, next) => {
     const userData = await User.findOne({
       email: req.rawHeaders[getUserEmail(req.rawHeaders)],
     });
+    console.log(req.rawHeaders[getUserEmail(req.rawHeaders)]);
     res.status(200).json({
       userData,
       // priceData,

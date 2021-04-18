@@ -44,19 +44,28 @@ const DashBoard = (props) => {
     const call = async () => {
       try {
         const dashboardData = await Ajax.getDashboardData();
-        const priceData = await Ajax.getMetalPrices();
+        console.log(dashboardData.data);
         setUserData(dashboardData.data.userData);
         setUserCommodities(dashboardData.data.userData.commodities);
-        setPriceData(priceData.data);
       } catch (err) {
         console.error(
-          "Could not get data from server, refresh the page or come back later."
+          "Could not get data from server, refresh the page or come back later.",
+          err
         );
       }
     };
 
     call();
-  }, [setUserData, setPriceData, setUserCommodities, reRender]);
+  }, [setUserData, setUserCommodities, reRender]);
+
+  useEffect(() => {
+    const call = async () => {
+      const priceData = await Ajax.getMetalPrices();
+      setPriceData(priceData.data);
+    };
+
+    call();
+  }, [setPriceData]);
 
   useEffect(() => {
     const timeout = setTimeout(async () => {
@@ -99,7 +108,7 @@ const DashBoard = (props) => {
 
   const totalsConversion = useCallback(() => {
     if (!userData && !priceData) {
-      return;
+      return null;
     }
 
     let totals = {
@@ -110,17 +119,21 @@ const DashBoard = (props) => {
     };
 
     let totalValue = 0;
+    console.log(priceData);
+    console.log(userData);
 
-    Object.keys(totals).forEach((el) => {
-      // convert price
-      const price = convertPrice(userData[el], priceData[el]);
+    if (priceData && userData) {
+      Object.keys(totals).forEach((el) => {
+        // convert price
+        const price = convertPrice(userData[el], priceData[el]);
 
-      // add price to totalValue
-      totalValue += price;
+        // add price to totalValue
+        totalValue += price;
 
-      // push price to object
-      totals[el] = price;
-    });
+        // push price to object
+        totals[el] = price;
+      });
+    }
 
     setUserPrices({ ...totals, total: totalValue.toFixed(2) });
   }, [priceData, userData, convertPrice]);

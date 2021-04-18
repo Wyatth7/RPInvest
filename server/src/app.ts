@@ -11,7 +11,7 @@ import compression from "compression";
 
 const app = express();
 
-app.use(helmet);
+app.use(helmet());
 
 const limiter = rateLimit({
   max: 100,

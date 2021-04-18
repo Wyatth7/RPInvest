@@ -14,7 +14,7 @@ import AddCommod from "./../../Modal/ModalContent/AddCommod";
 import EditModal from "./../../Modal/ModalContent/EditModal";
 import DeleteModal from "./../../Modal/ModalContent/DeleteModal";
 import { NavLink } from "react-router-dom";
-import formatNumberString from "../../../utils/formatNumberString";
+import formatNumberString from "./../../../utils/formatNumberString";
 
 const DashBoard = (props) => {
   const [priceData, setPriceData] = useState({});
@@ -24,7 +24,7 @@ const DashBoard = (props) => {
   const [userPrices, setUserPrices] = useState({});
   const [modal, setModal] = useState(false);
   const [modalErr, setModalErr] = useState(false);
-  const [reRender, setRerender] = useState(false);
+  const [reRender, setRerender] = useState(0);
   const [commodModal, setCommodModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
@@ -67,7 +67,7 @@ const DashBoard = (props) => {
           const searchData = await Ajax.searchString(commodSearch);
           setUserCommodities(searchData.data.userData);
         } else {
-          setRerender(!reRender);
+          setRerender(Math.random());
         }
       } catch (err) {
         console.error("Could not get data from search.");
@@ -75,7 +75,7 @@ const DashBoard = (props) => {
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [commodSearch, setUserCommodities, setRerender, reRender]);
+  }, [commodSearch, setUserCommodities, setRerender]);
 
   const roundToTwo = useCallback(
     (n, fixed) => ~~(Math.pow(10, fixed) * n) / Math.pow(10, fixed),
@@ -147,7 +147,7 @@ const DashBoard = (props) => {
       });
       setModal(!modal);
       setCommodModal(false);
-      setRerender(!reRender);
+      setRerender(Math.random());
     } catch (err) {
       setModalErr(true);
     }

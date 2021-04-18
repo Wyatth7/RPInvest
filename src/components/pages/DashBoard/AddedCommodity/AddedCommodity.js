@@ -1,4 +1,5 @@
 import React from "react";
+import formatNumberString from "../../../../utils/formatNumberString";
 
 // ICONS
 
@@ -8,7 +9,7 @@ const AddedCommodity = (props) => {
       <div className="info">
         <h1 className="name">{props.name}</h1>
         <div>
-          <h1 className="price">${props.price}</h1>
+          <h1 className="price">${formatNumberString(props.price)}</h1>
         </div>
         <h3 className="date">{props.date}</h3>
       </div>

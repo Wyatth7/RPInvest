@@ -175,11 +175,13 @@ export const getUserData: RequestHandler = async (req, res, next) => {
 
 export const queryCommodities: RequestHandler = async (req, res, next) => {
   try {
+    console.log(req.params.string);
     if (req.params.string === "") {
+      console.log("here");
+
       const commodities = await User.findOne({
         email: req.rawHeaders[getUserEmail(req.rawHeaders)],
       });
-
       return res.status(200).json(commodities?.commodities);
     }
 
@@ -188,9 +190,16 @@ export const queryCommodities: RequestHandler = async (req, res, next) => {
       "commodities.title": { $regex: req.params.string },
     });
 
-    console.log(commodities?.commodities);
+    const arr = commodities?.commodities
+      .map((el) =>
+        el.title.toLowerCase().includes(req.params.string) ? el : null
+      )
+      .filter((el) => el !== null);
 
-    res.status(200).json({ userData: commodities?.commodities });
+    console.log(arr);
+    console.log("here after the search");
+
+    res.status(200).json({ userData: arr });
   } catch (err) {
     console.log(err);
     return sendRes(res, 400, "Could not find commodity with that name");

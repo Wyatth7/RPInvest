@@ -48,7 +48,7 @@ class Ajax {
 
       const newData = {
         ...data,
-        email: email,
+        email,
       };
 
       const call = await this.callServer(

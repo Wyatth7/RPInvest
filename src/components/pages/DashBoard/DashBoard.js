@@ -14,6 +14,7 @@ import AddCommod from "./../../Modal/ModalContent/AddCommod";
 import EditModal from "./../../Modal/ModalContent/EditModal";
 import DeleteModal from "./../../Modal/ModalContent/DeleteModal";
 import { NavLink } from "react-router-dom";
+import formatNumberString from "../../../utils/formatNumberString";
 
 const DashBoard = (props) => {
   const [priceData, setPriceData] = useState({});
@@ -64,8 +65,9 @@ const DashBoard = (props) => {
       try {
         if (commodSearch !== "") {
           const searchData = await Ajax.searchString(commodSearch);
-
           setUserCommodities(searchData.data.userData);
+        } else {
+          setRerender(!reRender);
         }
       } catch (err) {
         console.error("Could not get data from search.");
@@ -73,12 +75,7 @@ const DashBoard = (props) => {
     }, 500);
 
     return () => clearTimeout(timeout);
-  }, [commodSearch, setUserCommodities]);
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", scrollListener);
-  //   return () => window.removeEventListener("scroll", scrollListener);
-  // });
+  }, [commodSearch, setUserCommodities, setRerender, reRender]);
 
   const roundToTwo = useCallback(
     (n, fixed) => ~~(Math.pow(10, fixed) * n) / Math.pow(10, fixed),
@@ -123,11 +120,14 @@ const DashBoard = (props) => {
         totalValue += price;
 
         // push price to object
-        totals[el] = price;
+        totals[el] = formatNumberString(price.toFixed(2));
       });
     }
 
-    setUserPrices({ ...totals, total: totalValue.toFixed(2) });
+    setUserPrices({
+      ...totals,
+      total: formatNumberString(totalValue.toFixed(2)),
+    });
   }, [priceData, userData, convertPrice]);
 
   // GET PRICE FROM OZs

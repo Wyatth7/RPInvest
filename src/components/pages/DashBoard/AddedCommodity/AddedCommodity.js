@@ -1,13 +1,12 @@
 import React from "react";
 import formatNumberString from "../../../../utils/formatNumberString";
-
-// ICONS
+import shortenString from "../../../../utils/shortenString";
 
 const AddedCommodity = (props) => {
   return (
     <div id={props.id} className="AddedCommodity">
       <div className="info">
-        <h1 className="name">{props.name}</h1>
+        <h1 className="name">{shortenString(props.name)}</h1>
         <div>
           <h1 className="price">${formatNumberString(props.price)}</h1>
         </div>

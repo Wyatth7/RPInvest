@@ -88,7 +88,7 @@ const Nav = (props) => {
         </Modal>
       ) : null}
       <div className="nav-logo">
-        <BaseLinks to="/" title="RPMetals" />
+        <HashLinks to="/#home" title="RPMetals" />
       </div>
       <div className="nav-bars">
         <FontAwesomeIcon onClick={toggleMobileNavHandler} icon={solid.faBars} />

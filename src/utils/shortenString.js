@@ -1,4 +1,8 @@
 const shortenString = (string) => {
+  if (string.length < 8) {
+    return string;
+  }
+
   const dots = "...";
 
   const stringArr = string.split(string[8]);

@@ -14,11 +14,13 @@ const EditModal = (props) => {
         {props.isError ? <p className="modal-error">{props.err}</p> : null}
         <div className="inputs">
           <input
+            required
             type="text"
             onChange={props.title}
             placeholder="Change title"
           />
           <input
+            required
             type="number"
             onChange={props.price}
             placeholder="Change amount"

@@ -121,6 +121,7 @@ export const deleteCommodity: RequestHandler = async (req, res, next) => {
 
 export const editCommodity: RequestHandler = async (req, res, next) => {
   try {
+    console.log(req.body.amount);
     await User.findOneAndUpdate(
       {
         email: req.rawHeaders[getUserEmail(req.rawHeaders)],
@@ -162,7 +163,6 @@ export const getUserData: RequestHandler = async (req, res, next) => {
     const userData = await User.findOne({
       email: req.rawHeaders[getUserEmail(req.rawHeaders)],
     });
-    console.log(req.rawHeaders[getUserEmail(req.rawHeaders)]);
     res.status(200).json({
       userData,
       // priceData,

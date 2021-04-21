@@ -16,11 +16,13 @@ const AddCommod = (props) => {
         {props.isError ? <p className="modal-error">{props.err}</p> : null}
         <div className="modal-content--inputs">
           <input
+            required
             onChange={props.title}
             placeholder="Commodity Name"
             type="text"
           />
           <input
+            required
             onChange={props.price}
             placeholder="Ounces"
             type="number"
@@ -28,7 +30,7 @@ const AddCommod = (props) => {
           />
         </div>
         <div className="modal-content--select">
-          <select onChange={props.type} defaultValue="Commodity type">
+          <select required onChange={props.type} defaultValue="Commodity type">
             <option value="Commodity type" disabled>
               Commodity type
             </option>

@@ -9,7 +9,7 @@ const Footer = (props) => {
         <div className="group-links">
           <HashLinks to="/#home" title="Home" />
           <HashLinks to="/#how-it-works" title="How It Works" />
-          <BaseLink to="/login" title="Login" />
+          {props.auth ? null : <BaseLink to="/login" title="Login" />}
         </div>
         <div className="group-links">
           <HashLinks to="/#about" title="About" />

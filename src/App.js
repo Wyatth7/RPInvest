@@ -57,7 +57,7 @@ function App() {
           </Switch>
         </div>
       </div>
-      <Footer />
+      <Footer auth={authenticated} />
     </div>
   );
 }

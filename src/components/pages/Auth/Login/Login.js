@@ -31,10 +31,7 @@ const Login = (props) => {
         userCredential.user
           .getIdToken()
           .then((res) => {
-            console.log(res);
             localStorage.setItem("authTokenRPM", res);
-            console.log(localStorage.getItem("authTokenRPM"));
-
             props.setAuth();
             props.history.push("/dashboard");
           })

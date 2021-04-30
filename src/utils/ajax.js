@@ -138,7 +138,6 @@ class Ajax {
    * @returns string
    */
   static async signup(data) {
-    console.log(data);
     return await this.callServer(`${this.authPath}/create`, "post", data);
   }
 }

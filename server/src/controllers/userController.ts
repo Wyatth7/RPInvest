@@ -121,7 +121,6 @@ export const deleteCommodity: RequestHandler = async (req, res, next) => {
 
 export const editCommodity: RequestHandler = async (req, res, next) => {
   try {
-    console.log(req.body.amount);
     await User.findOneAndUpdate(
       {
         email: req.rawHeaders[getUserEmail(req.rawHeaders)],
@@ -175,10 +174,7 @@ export const getUserData: RequestHandler = async (req, res, next) => {
 
 export const queryCommodities: RequestHandler = async (req, res, next) => {
   try {
-    console.log(req.params.string);
     if (req.params.string === "") {
-      console.log("here");
-
       const commodities = await User.findOne({
         email: req.rawHeaders[getUserEmail(req.rawHeaders)],
       });
@@ -195,9 +191,6 @@ export const queryCommodities: RequestHandler = async (req, res, next) => {
         el.title.toLowerCase().includes(req.params.string) ? el : null
       )
       .filter((el) => el !== null);
-
-    console.log(arr);
-    console.log("here after the search");
 
     res.status(200).json({ userData: arr });
   } catch (err) {

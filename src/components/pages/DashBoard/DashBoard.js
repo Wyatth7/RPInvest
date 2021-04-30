@@ -38,7 +38,6 @@ const DashBoard = (props) => {
     const call = async () => {
       try {
         const dashboardData = await Ajax.getDashboardData();
-        console.log(dashboardData.data);
         setUserData(dashboardData.data.userData);
         setUserCommodities(dashboardData.data.userData.commodities);
       } catch (err) {
@@ -108,9 +107,6 @@ const DashBoard = (props) => {
     };
 
     let totalValue = 0;
-    console.log(priceData);
-    console.log(userData);
-
     if (priceData && userData) {
       Object.keys(totals).forEach((el) => {
         // convert price

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 // FIREBASE
 import firebase from "firebase/app";
+import "firebase/auth";
 
 // ICONS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

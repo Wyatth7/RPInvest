@@ -41,6 +41,10 @@ app.use("/api/v1/contact", contactRoutes);
 app.use(compression());
 
 app.use((req: Request, res: Response, next: NextFunction) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self' ; connect-src * 'self' ws:https://cdn.firebase.com https://*.firebaseio.com https://auth.firebase.com https://auth.firebase.com https://googleapis.com; img-src 'self'; script-src 'self' 'unsafe-inline' ; style-src 'self' 'unsafe-inline' https://cdn.firebase.com https://*.firebaseio.com https://auth.firebase.com https://auth.firebase.com https://www.googleapis.com fonts.googleapis.com; object-src 'self'; frame-src 'self'; font-src fonts.gstatic.com;"
+  );
   res.sendFile(path.join(__dirname, "./../../build", "index.html"));
 });
 

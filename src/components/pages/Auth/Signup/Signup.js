@@ -6,6 +6,7 @@ import Auth from "../Auth";
 
 // FIREBASE
 import firebase from "firebase/app";
+import "firebase/auth";
 
 import Ajax from "./../../../../utils/ajax";
 

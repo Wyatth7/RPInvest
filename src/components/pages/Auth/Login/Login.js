@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 
 // FIREBASE
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
 import firebaseConfig from "./../../../../utils/firebaseConfig";
 
 // COMPONENTS
@@ -12,7 +13,8 @@ import { NavLink } from "react-router-dom";
 
 // ui.start("./../../../../utils/firebaseConfig.js", uiconfig);
 
-firebase.default.initializeApp(firebaseConfig);
+// firebase.default.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
